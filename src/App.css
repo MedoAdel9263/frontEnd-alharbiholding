@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.rotate-continuous {
+    @apply animate-spin;
+    animation: spin 6s linear infinite;
+  }
+
+.hover-effect {
+  background-color: #f5f4fa;
+  color: #141416;
+  transition: background-color 0.5s ease; /* This provides a smooth transition before the animation kicks in */
+}
+
+/* Define the continuous animation */
+@keyframes backgroundChange {
+  0% { background-color: #00503a; }
+  25% { background-color: #00503a; } /* Red */
+  50% { background-color: #00503a; } /* Green */
+  75% { background-color: #00503a; } /* Blue */
+  100% { background-color: #00503a; }
+}
+
+/* Apply the animation on hover */
+.hover-effect:hover {
+  animation: backgroundChange 4s infinite linear;
+}
+
+@keyframes moveLeftRight {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(30px); /* Adjust as needed */
+    }
+  }
+  
+  .moving-div {
+    /* Animation */
+    animation: moveLeftRight 2s ease-in-out infinite;
+  }
+
+body {
+    font-family: var(--font-secondary), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.our-cpmpany-btn svg path {
+    fill: #141416;
+}
+
+.our-cpmpany-btn:hover svg path , .footer:hover svg path {
+    fill: white;
+}
