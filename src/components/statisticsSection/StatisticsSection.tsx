@@ -2,8 +2,9 @@ import React from 'react'
 
 function StatisticsSection() {
     return (
-        <div className='mt-24 px-[16px] mx-0 md:mx-10 lg:mx-14'>
-            <div className='mt-8 grid gap-[30px] sm:grid-cols-2 2xl:grid-cols-4'>
+        <section className='section-padding-primary overflow-hidden bg-white dark:bg-accent-700 [.light_&]:pt-0'>
+               <div className='mx-0 md:mx-10 lg:mx-14'>
+            <div className='grid gap-[30px] sm:grid-cols-2 2xl:grid-cols-4'>
                 <div className="aos-init aos-animate">
                     <div className="group relative flex items-center">
                         <span className="relative z-1 inline-grid h-[50px] w-[50px] flex-none place-items-center rounded-5  bg-primary text-white">
@@ -66,6 +67,8 @@ function StatisticsSection() {
                 </div>
             </div>
         </div>
+</section>
+     
     )
 }
 

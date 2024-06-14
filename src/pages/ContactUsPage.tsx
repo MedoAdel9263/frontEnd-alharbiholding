@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../components/header/Header'
-import Footer from '../components/footer/Footer'
+import { useGetAboutUsQuery } from '../utils/services/aboutUs.service';
+import Header from '../components/header/Header';
 import { useGetContactInfoQuery } from '../utils/services/contactInfo.service';
-import CareerCenterComponent from '../components/career-center/CareerCenter';
+import Footer from '../components/footer/Footer';
 import Loader from '../components/loader/Loader';
+import ContactUsComponent from '../components/contact-us/ContactUs';
+import ContactUsInfo from '../components/contact-us/ContactUsInfo';
 
-function MediaCenter() {
+function ContactUsPage() {
 
     const [contactInfo, setContactInfo] = useState<any>([]);
 
@@ -33,21 +35,22 @@ function MediaCenter() {
           }, 100);
     },[])
 
-    return (
-        <div>
-        {
-            !isLoadingContactInfo && contactInfo.length ?
-            <>
-                    <Header items={contactInfo} />
-                    <CareerCenterComponent items={contactInfo} />
-                    <Footer items={contactInfo} />
-                </>
-                :
-                <Loader />
-        }
-
-    </div>
-    )
+  return (
+    <>
+ {
+        !isLoadingContactInfo && contactInfo.length ?
+        <>
+                <Header items={contactInfo} />
+                <ContactUsInfo items={contactInfo} /> 
+                <Footer items={contactInfo} />
+            </>
+            :
+            <Loader />
+    }
+    </>
+   
+    
+  )
 }
 
-export default MediaCenter
+export default ContactUsPage

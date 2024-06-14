@@ -6,22 +6,23 @@ function OurCompany({ companies, companiesCategory }: { companies: any[], compan
 
    const [categoryId , setCategoryId] = useState<string>('7');
 
-//    useEffect(() => {
-//     setCategoryId(companiesCategory[0].id);
-//    },[]);
+   useEffect(() => {
+    setCategoryId(companiesCategory[0].id);
+   },[]);
 
    const onchange =(id) => {
-    debugger
+    
     setCategoryId(id);
    }
 
     return (
         <>
-            <div className='mt-8 md:mt-12 px-[16px] mx-0 md:mx-10 lg:mx-14'>
+           <section className='section-padding-primary overflow-hidden bg-white dark:bg-accent-700 [.light_&]:pt-0'>
+           <div className='mx-0 md:mx-10 lg:mx-14'>
                 <div className="mb-10 flex flex-wrap items-end justify-between gap-x-20 gap-y-10 md:mb-[2.75rem]">
                     <div className="max-w-[500px]">
                         <div className="text-left">
-                            <h2 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 dark:text-white md:text-2xl">Our Companies</h2>
+                            <h2 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 dark:text-white md:text-2xl">Companies</h2>
                         </div>
                     </div>
                 </div>
@@ -51,6 +52,8 @@ function OurCompany({ companies, companiesCategory }: { companies: any[], compan
                     </div>
                 </div>
             </div>
+           </section>
+        
 
         </>
 

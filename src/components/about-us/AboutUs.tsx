@@ -2,8 +2,8 @@ import React from 'react'
 
 function AboutUs({aboutUs}:{aboutUs:any}) {
     return (
-        <section id='about-us' className=" overflow-hidden">
-            <div className="mt-24 px-[16px] mx-0 md:mx-10 lg:mx-14">
+        <section className='section-padding-primary overflow-hidden bg-white dark:bg-accent-700 [.light_&]:pt-0'>
+        <div className="px-[16px] mx-0 md:mx-10 lg:mx-14">
                 <div className="grid items-center gap-12 lg:grid-cols-[.92fr_1fr] 2xl:gap-20">
                     <div className="lg:order-2 aos-init aos-animate" data-aos="fade-left" data-aos-delay="200">
                         <div className="text-left">
@@ -36,7 +36,7 @@ function AboutUs({aboutUs}:{aboutUs:any}) {
                             <div className="absolute left-1/2 top-1/2 z-[4] -translate-x-1/2 -translate-y-1/2 overflow-hidden">
                                 <div data-aos="zoom-in" data-aos-delay="450" className="aos-init aos-animate">
                                     <span className="grid h-[100px] w-[100px]  place-items-center rounded-full border-[12px] border-white bg-primary text-[30px] ">
-                                        <svg width="1em" height="1em" viewBox="0 0 27 27" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M26.8125 13.8672C26.8125 14.9922 25.875 15.9297 24.8125 15.9297H15.8125V24.9297C15.8125 25.9922 14.875 26.8672 13.8125 26.8672C12.6875 26.8672 11.8125 25.9922 11.8125 24.9297V15.9297H2.8125C1.6875 15.9297 0.8125 14.9922 0.8125 13.8672C0.8125 12.8047 1.6875 11.9297 2.8125 11.9297H11.8125V2.92969C11.8125 1.80469 12.6875 0.867188 13.8125 0.867188C14.875 0.867188 15.8125 1.80469 15.8125 2.92969V11.9297H24.8125C25.875 11.8672 26.8125 12.8047 26.8125 13.8672Z"></path></svg>
+                                        <svg width="1em" height="1em" viewBox="0 0 27 27" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill='white' d="M26.8125 13.8672C26.8125 14.9922 25.875 15.9297 24.8125 15.9297H15.8125V24.9297C15.8125 25.9922 14.875 26.8672 13.8125 26.8672C12.6875 26.8672 11.8125 25.9922 11.8125 24.9297V15.9297H2.8125C1.6875 15.9297 0.8125 14.9922 0.8125 13.8672C0.8125 12.8047 1.6875 11.9297 2.8125 11.9297H11.8125V2.92969C11.8125 1.80469 12.6875 0.867188 13.8125 0.867188C14.875 0.867188 15.8125 1.80469 15.8125 2.92969V11.9297H24.8125C25.875 11.8672 26.8125 12.8047 26.8125 13.8672Z"></path></svg>
                                     </span>
                                 </div>
                             </div>

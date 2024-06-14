@@ -54,3 +54,11 @@ body {
 .our-cpmpany-btn:hover svg path , .footer:hover svg path {
     fill: white;
 }
+
+.section-padding-primary {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+

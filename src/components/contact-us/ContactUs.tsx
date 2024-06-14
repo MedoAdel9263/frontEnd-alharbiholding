@@ -1,19 +1,34 @@
 import React, { useState } from 'react'
 import emailjs from '@emailjs/browser';
 import Swal from "sweetalert2";
+import { useContactUsMutation } from '../../utils/services/ContactUs.service';
 
-function ContactUs({items}:{items:any}) {
+function ContactUsComponent({items}:{items:any}) {
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [subject, setSubject] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
     const [message, setMessage] = useState<string>('');
-    const sendEmail = (e: any) => {
+
+    const [ContactUs, { data, isSuccess }] = useContactUsMutation();
+
+
+    const sendEmail = async (e: any) => {
 
         e.preventDefault();
         try {
             emailjs.sendForm(
                 "service_66pmbwi", "template_n21utys", e.target, "0qeJ-5iblRusaAbPA");
+          
+            await ContactUs(
+                {
+                    Name: name,
+                    Phone: phone,
+                    Subject: subject,
+                    Message: message,
+                    Email: email,
+                }
+            )
             Swal.fire({
                 icon: 'success',
                 text: "Thank you for reaching out! We'll get back to you shortly.",
@@ -31,8 +46,8 @@ function ContactUs({items}:{items:any}) {
 
     };
     return (
-        <section id='contact-us' className=" overflow-hidden">
-            <div className="my-24 px-[16px] mx-0 md:mx-10 lg:mx-14">
+        <section className='section-padding-primary overflow-hidden bg-white dark:bg-accent-700 [.light_&]:pt-0'>
+            <div className="mx-0 md:mx-10 lg:mx-14">
                 <div className='flex flex-col gap-[50px] md:flex-row'>
                     <div className="md:w-1/2 lg:w-2/3">
                         <div className="mb-30px">
@@ -97,7 +112,7 @@ function ContactUs({items}:{items:any}) {
                                 </span>
                                 <div className='flex flex-col items-center px-[20px]'>
                                     <h3 className="text-md font-bold leading-[1.5] mb-1.5 text-accent-900 w-full">Email Address</h3>
-                                    <a href="mailto:info@alharbiholding.com.sa">info@alharbiholding.com.sa</a>
+                                    <a href={`mailto:${items[0].Email}`}>{items[0].Email}</a>
                                 </div>
                             </li>
                             <li className="flex gap-30px items-center">
@@ -106,7 +121,7 @@ function ContactUs({items}:{items:any}) {
                                 </span>
                                 <div className='flex flex-col items-center px-[20px]'>
                                     <h3 className="text-md font-bold leading-[1.5] mb-1.5 text-accent-900  w-full">Phone number</h3>
-                                    <a href="tel:+966(011)4775252">{items[0].Phone}</a>
+                                    <a href={`tel:${items[0].Phone}`}>{items[0].Phone}</a>
                                 </div>
                             </li>
                         </ul>
@@ -117,4 +132,4 @@ function ContactUs({items}:{items:any}) {
     )
 }
 
-export default ContactUs
+export default ContactUsComponent

@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../components/header/Header';
 import MainSlider from '../components/slider/MainSlider';
-import { mainSlides } from './data';
 import { useGetPartnersQuery } from '../utils/services/ourPartners.service';
 import OurCompany from '../components/our-companies/OurCompany';
 import { useGetMainSliderQuery } from '../utils/services/mainSlider.service';
@@ -11,19 +10,19 @@ import { useGetCompaniesQuery } from '../utils/services/ourCompanies.service';
 import Subscribe from '../components/subscribe/Subscribe';
 import StatisticsSection from '../components/statisticsSection/StatisticsSection';
 import AboutUs from '../components/about-us/AboutUs';
-import ContactUs from '../components/contact-us/ContactUs';
 import Footer from '../components/footer/Footer';
 import { useGetAboutUsQuery } from '../utils/services/aboutUs.service';
 import { useGetPressReleasesDetailsQuery } from '../utils/services/pressReleaseDetails.service';
 import { useGetPressReleasesCategoryQuery } from '../utils/services/pressReleaseCategory.service';
-import { useGetCareerCenterQuery } from '../utils/services/careerCenter.service';
 import { useGetContactInfoQuery } from '../utils/services/contactInfo.service';
 import Loader from '../components/loader/Loader';
-import PartnersCarousel from '../components/partners-carousel/PartnersCarousel';
+import PartnersCarousel from '../components/partners/PartnersCarousel';
+import ContactUsComponent from '../components/contact-us/ContactUs';
+import History from '../components/history/History';
 
 
 
-export default function Home() {
+function HomePage() {
 
     const [Partners, setPartners] = useState<any>([]);
     const [mainSlider, setMainSlider] = useState<any>([]);
@@ -31,22 +30,13 @@ export default function Home() {
     const [companies, setCompanies] = useState<any>([]);
     const [aboutUs, setAboutUs] = useState<any>([]);
     const [contactInfo, setContactInfo] = useState<any>([]);
-    const [careerCenter, setCareerCenter] = useState<any>([]);
-    const [mediaCenterCategory, setMediaCenterCategory] = useState<any>([]);
     const [pressReleaseCategory, setPressReleaseCategory] = useState<any>([]);
-    const [pressReleaseDetails, setPressReleaseDetails] = useState<any>([]);
 
     const {
         data: partnerData,
         isLoading: isLoadingPartners,
         isSuccess: isSuccessPartners,
     } = useGetPartnersQuery();
-
-    const {
-        data: companyCategoryData,
-        isLoading: isLoadingCompanyCategory,
-        isSuccess: isSuccessCompanyCategory,
-    } = useGetOurCompanyCategoryQuery();
 
     const {
         data: mainSliderData,
@@ -61,6 +51,12 @@ export default function Home() {
     } = useGetCompaniesQuery();
 
     const {
+        data: companyCategoryData,
+        isLoading: isLoadingCompanyCategory,
+        isSuccess: isSuccessCompanyCategory,
+    } = useGetOurCompanyCategoryQuery();
+
+    const {
         data: aboutUsData,
         isLoading: isLoadingAboutUs,
         isSuccess: isSuccessAboutUs,
@@ -73,22 +69,10 @@ export default function Home() {
     } = useGetContactInfoQuery();
 
     const {
-        data: careerCenterData,
-        isLoading: isLoadingCareerCenter,
-        isSuccess: isSuccessCareerCenter,
-    } = useGetCareerCenterQuery();
-
-    const {
         data: pressReleaseCategoryData,
         isLoading: isLoadingPressReleaseCategory,
         isSuccess: isSuccessPressReleaseCategory,
     } = useGetPressReleasesCategoryQuery();
-
-    const {
-        data: pressReleaseDetailsData,
-        isLoading: isLoadingPressReleaseDetails,
-        isSuccess: isSuccessPressReleaseDetails,
-    } = useGetPressReleasesDetailsQuery();
 
     useEffect(() => {
 
@@ -127,9 +111,14 @@ export default function Home() {
     }, [isSuccessAboutUs]);
 
     useEffect(() => {
-        setTimeout(() => {
+       
+        if (isSuccessPressReleaseCategory)
+            setPressReleaseCategory(pressReleaseCategoryData.results?.slice(-3))
+    }, [isSuccessPressReleaseCategory]);
 
-      
+
+    useEffect(() => {
+        setTimeout(() => {
               window.scrollTo({
                 top: 0,
                 behavior: 'smooth',
@@ -141,7 +130,7 @@ export default function Home() {
     return (
         <>
             {
-                isSuccessContactInfo && isSuccessCompanies && isSuccessCompanyCategory && isSuccessContactInfo && isSuccessMainslider && isSuccessCareerCenter && isSuccessAboutUs && isSuccessPressReleaseCategory && isSuccessPressReleaseDetails ?
+                isSuccessContactInfo && isSuccessCompanies && isSuccessCompanyCategory && isSuccessContactInfo && isSuccessMainslider && isSuccessAboutUs && isSuccessPressReleaseCategory ?
                     <>
                     {
                             !isLoadingContactInfo && contactInfo.length > 0 && (
@@ -161,6 +150,11 @@ export default function Home() {
                         <Subscribe />
                         <StatisticsSection />
                         {
+                            !isLoadingPressReleaseCategory && pressReleaseCategory.length > 0 && (
+                                <History items={pressReleaseCategory} isHome={true} />
+                            )
+                        } 
+                        {
                             !isLoadingAboutUs && aboutUs.length > 0 && (
                                 <AboutUs aboutUs={aboutUs} />
                             )
@@ -173,7 +167,7 @@ export default function Home() {
                         }
                           {
                             !isLoadingContactInfo && contactInfo.length > 0 && (
-                                <ContactUs items={contactInfo}/>
+                                <ContactUsComponent items={contactInfo}/>
                             )
                         }
                            {
@@ -189,3 +183,5 @@ export default function Home() {
         </>
     );
 }
+
+export default  HomePage

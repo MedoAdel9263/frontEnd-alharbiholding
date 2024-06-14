@@ -9,7 +9,15 @@ export const OurCompaniesService: any = API.injectEndpoints({
       transformResponse: (data) => data,
       transformErrorResponse: (error) => error,
     }),
+    companyById: build.query<any, any>({
+      query: (data) => ({
+        method: 'GET',
+        url: `our-company/${data.id}`,
+      }),
+      transformResponse: (data) => data,
+      transformErrorResponse: (error) => error,
+    }),
   }),
 });
 
-export const { useGetCompaniesQuery } = OurCompaniesService;
+export const { useGetCompaniesQuery ,useLazyCompanyByIdQuery} = OurCompaniesService;
