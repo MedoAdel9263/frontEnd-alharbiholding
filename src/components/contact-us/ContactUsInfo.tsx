@@ -12,8 +12,8 @@ function ContactUsInfo({ items }: { items: any }) {
 
         e.preventDefault();
         try {
-            emailjs.sendForm(
-                "service_66pmbwi", "template_n21utys", e.target, "0qeJ-5iblRusaAbPA");
+            // emailjs.sendForm(
+            //     "service_66pmbwi", "template_n21utys", e.target, "0qeJ-5iblRusaAbPA");
             Swal.fire({
                 icon: 'success',
                 text: "Thank you for reaching out! We'll get back to you shortly.",

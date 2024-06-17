@@ -69,7 +69,7 @@ function CompanyPage() {
                     <Header items={contactInfo} />
                     {
                             !isLoadingCompanies && !isLoadingCompanyCategory && companyCategory.length > 0 && companies.length && (
-                                <OurCompany companies={companies} companiesCategory={companyCategory} />
+                                <OurCompany companies={companies} companiesCategory={companyCategory} isHome={false}/>
                             )
                         } 
                     <Footer items={contactInfo} />

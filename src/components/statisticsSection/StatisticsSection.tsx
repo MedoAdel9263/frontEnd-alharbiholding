@@ -1,6 +1,6 @@
 import React from 'react'
 
-function StatisticsSection() {
+function StatisticsSection({items}:{items:any}) {
     return (
         <section className='section-padding-primary overflow-hidden bg-white dark:bg-accent-700 [.light_&]:pt-0'>
                <div className='mx-0 md:mx-10 lg:mx-14'>
@@ -14,9 +14,9 @@ function StatisticsSection() {
                         </span>
                         <div className="-ml-5 flex min-h-[120px] flex-1 flex-col justify-center  rounded-[5px] bg-accent-100 p-30px py-2.5 pl-10  bg-gray-200">
                             <h3 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 text-white md:text-2xl">
-                                <span className='text-[#141416]'>200K</span>
+                                <span className='text-[#141416]'>{items[0] && items[0]?.attributes?.Title}</span>
                             </h3>
-                            <p className="-mt-2.5 text-gray-500">Visitor Monthly</p>
+                            <p className="-mt-2.5 text-gray-500">{items[0] && items[0]?.attributes?.Description}</p>
                         </div>
                     </div>
                 </div>
@@ -28,10 +28,10 @@ function StatisticsSection() {
                             </span>
                         </span>
                         <div className="-ml-5 flex min-h-[120px] flex-1 flex-col justify-center  rounded-[5px] bg-accent-100 p-30px py-2.5 pl-10  bg-gray-200">
-                            <h3 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 text-white md:text-2xl">
-                                <span className='text-[#141416]'>50%</span>
+                        <h3 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 text-white md:text-2xl">
+                                <span className='text-[#141416]'>{items[1] && items[1]?.attributes?.Title}</span>
                             </h3>
-                            <p className="-mt-2.5 text-gray-500">Growth Monthly</p>
+                            <p className="-mt-2.5 text-gray-500">{items[1] && items[1]?.attributes?.Description}</p>
                         </div>
                     </div>
                 </div>
@@ -43,10 +43,10 @@ function StatisticsSection() {
                             </span>
                         </span>
                         <div className="-ml-5 flex min-h-[120px] flex-1 flex-col justify-center  rounded-[5px] bg-accent-100 p-30px py-2.5 pl-10  bg-gray-200">
-                            <h3 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 text-white md:text-2xl">
-                                <span className='text-[#141416]'>1M+</span>
+                        <h3 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 text-white md:text-2xl">
+                                <span className='text-[#141416]'>{items[2] && items[2]?.attributes?.Title}</span>
                             </h3>
-                            <p className="-mt-2.5 text-gray-500">Happy Clients</p>
+                            <p className="-mt-2.5 text-gray-500">{items[2] && items[2]?.attributes?.Description}</p>
                         </div>
                     </div>
                 </div>
@@ -58,10 +58,10 @@ function StatisticsSection() {
                             </span>
                         </span>
                         <div className="-ml-5 flex min-h-[120px] flex-1 flex-col justify-center  rounded-[5px] bg-accent-100 p-30px py-2.5 pl-10  bg-gray-200">
-                            <h3 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 text-white md:text-2xl">
-                                <span className='text-[#141416]'>30+</span>
+                        <h3 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 text-white md:text-2xl">
+                                <span className='text-[#141416]'>{items[3] && items[3]?.attributes?.Title}</span>
                             </h3>
-                            <p className="-mt-2.5 text-gray-500">Country</p>
+                            <p className="-mt-2.5 text-gray-500">{items[3] && items[3]?.attributes?.Description}</p>
                         </div>
                     </div>
                 </div>

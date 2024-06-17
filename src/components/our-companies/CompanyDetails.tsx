@@ -4,7 +4,7 @@ import { Constants } from '../../Constants'
 function CompanyDetails({ item }: { item: any }) {
 
     return (
-        <div className='section-padding-primary'>
+        <div className=''>
 
             <div className='relative flex flex-col'>
                 <div className='keen-slider max-md:order-2'>

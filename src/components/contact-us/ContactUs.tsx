@@ -17,8 +17,8 @@ function ContactUsComponent({items}:{items:any}) {
 
         e.preventDefault();
         try {
-            emailjs.sendForm(
-                "service_66pmbwi", "template_n21utys", e.target, "0qeJ-5iblRusaAbPA");
+            // emailjs.sendForm(
+            //     "service_66pmbwi", "template_n21utys", e.target, "0qeJ-5iblRusaAbPA");
           
             await ContactUs(
                 {

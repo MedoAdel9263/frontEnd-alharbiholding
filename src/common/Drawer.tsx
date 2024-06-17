@@ -1,44 +1,12 @@
 
 
-import { Avatar, Button, Datepicker, Drawer, Label, Textarea, TextInput, theme } from "flowbite-react";
+import {Drawer} from "flowbite-react";
 import React from "react";
-import { useState } from "react";
-import { HiCalendar, HiUserAdd } from "react-icons/hi";
-import { twMerge } from "tailwind-merge";
-import emailjs from '@emailjs/browser';
-import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
 export function DrawerComponent({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: Function }) {
 
-    const [name, setName] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
-    const [subject, setSubject] = useState<string>('');
-    const [phone, setPhone] = useState<string>('');
-    const [message, setMessage] = useState<string>('');
+    
     const router = useNavigate();
-
-    const sendEmail = (e: any) => {
-
-        e.preventDefault();
-        try {
-            emailjs.sendForm(
-                "service_66pmbwi", "template_n21utys", e.target, "0qeJ-5iblRusaAbPA");
-            Swal.fire({
-                icon: 'success',
-                text: "Thank you for reaching out! We'll get back to you shortly.",
-                showConfirmButton: true
-            })
-            setPhone("");
-            setMessage("");
-            setName("");
-            setSubject("");
-            setEmail("");
-        }
-        catch (error) {
-            console.log(error)
-        }
-
-    };
 
     const handleClose = () => setIsOpen(false);
 

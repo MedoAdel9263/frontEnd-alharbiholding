@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import CompamyCategoyCard from '../../common/CompamyCategoyCard'
 import CompaniesCard from '../../common/CompaniesCard'
+import CompanyDetails from './CompanyDetails';
 
-function OurCompany({ companies, companiesCategory }: { companies: any[], companiesCategory: any[] }) {
+function OurCompany({ companies, companiesCategory ,isHome }: { companies: any[], companiesCategory: any[] ,isHome:boolean}) {
 
    const [categoryId , setCategoryId] = useState<string>('7');
 
@@ -38,18 +39,35 @@ function OurCompany({ companies, companiesCategory }: { companies: any[], compan
                         }
 
                     </div>
-                    <div className=' mb-10 w-full px-[15px]'>
-                        <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 mx-[-15px] gap-5'>
-                        {
-                            companies.filter(company => company?.company_category?.id == categoryId).map((item,index) => {
-                                return (
-                                    <CompaniesCard key={index} item={item} />
-                                )
-
-                            })
-                        }
+                    {
+                         isHome ? (
+                            <div className=' mb-10 w-full px-[15px]'>
+                            <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 mx-[-15px] gap-5'>
+                            {
+                                companies.filter(company => company?.company_category?.id == categoryId).map((item,index) => {
+                                    return (
+                                        <CompaniesCard key={index} item={item} />
+                                    )
+    
+                                })
+                            }
+                            </div>
                         </div>
-                    </div>
+                         )
+                         :
+                         <div className=' mb-10 w-full px-[15px]'>
+                         <div className='grid grid-cols-1 mx-[-15px] gap-5'>
+                         {
+                             companies.filter(company => company?.company_category?.id == categoryId).map((item,index) => {
+                                 return (
+                                     <CompanyDetails key={index} item={item} />
+                                 )
+ 
+                             })
+                         }
+                         </div>
+                     </div>
+                    }
                 </div>
             </div>
            </section>

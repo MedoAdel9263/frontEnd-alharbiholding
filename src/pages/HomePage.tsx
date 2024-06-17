@@ -19,6 +19,8 @@ import Loader from '../components/loader/Loader';
 import PartnersCarousel from '../components/partners/PartnersCarousel';
 import ContactUsComponent from '../components/contact-us/ContactUs';
 import History from '../components/history/History';
+import HistoryList from '../components/history/HistoryList';
+import { useGetStatisticQuery } from '../utils/services/statistic.service';
 
 
 
@@ -30,7 +32,8 @@ function HomePage() {
     const [companies, setCompanies] = useState<any>([]);
     const [aboutUs, setAboutUs] = useState<any>([]);
     const [contactInfo, setContactInfo] = useState<any>([]);
-    const [pressReleaseCategory, setPressReleaseCategory] = useState<any>([]);
+    const [pressReleaseDetails, setPressReleaseDetails] = useState<any>([]);
+    const [statistic, setStatistic] = useState<any>([]);
 
     const {
         data: partnerData,
@@ -69,10 +72,16 @@ function HomePage() {
     } = useGetContactInfoQuery();
 
     const {
-        data: pressReleaseCategoryData,
-        isLoading: isLoadingPressReleaseCategory,
-        isSuccess: isSuccessPressReleaseCategory,
-    } = useGetPressReleasesCategoryQuery();
+        data: pressReleaseDetailsData,
+        isLoading: isLoadingPressReleaseDetails,
+        isSuccess: isSuccessPressReleaseDetails,
+    } = useGetPressReleasesDetailsQuery();
+
+    const {
+        data: statisticData,
+        isLoading: isLoadingStatistic,
+        isSuccess: isSuccessStatistic,
+    } = useGetStatisticQuery();
 
     useEffect(() => {
 
@@ -112,10 +121,15 @@ function HomePage() {
 
     useEffect(() => {
        
-        if (isSuccessPressReleaseCategory)
-            setPressReleaseCategory(pressReleaseCategoryData.results?.slice(-3))
-    }, [isSuccessPressReleaseCategory]);
+        if (isSuccessPressReleaseDetails)
+            setPressReleaseDetails(pressReleaseDetailsData.results?.slice(-3))
+    }, [isSuccessPressReleaseDetails]);
 
+    useEffect(() => {
+       
+        if (isSuccessStatistic)
+            setStatistic(statisticData.data)
+    }, [isSuccessStatistic]);
 
     useEffect(() => {
         setTimeout(() => {
@@ -130,7 +144,7 @@ function HomePage() {
     return (
         <>
             {
-                isSuccessContactInfo && isSuccessCompanies && isSuccessCompanyCategory && isSuccessContactInfo && isSuccessMainslider && isSuccessAboutUs && isSuccessPressReleaseCategory ?
+                isSuccessContactInfo && isSuccessCompanies && isSuccessCompanyCategory && isSuccessContactInfo && isSuccessMainslider && isSuccessAboutUs && isSuccessPressReleaseDetails && isSuccessStatistic ?
                     <>
                     {
                             !isLoadingContactInfo && contactInfo.length > 0 && (
@@ -144,14 +158,18 @@ function HomePage() {
                         }
                         {
                             !isLoadingCompanies && !isLoadingCompanyCategory && companyCategory.length > 0 && companies.length && (
-                                <OurCompany companies={companies} companiesCategory={companyCategory} />
+                                <OurCompany companies={companies} companiesCategory={companyCategory} isHome={true}/>
                             )
                         }
                         <Subscribe />
-                        <StatisticsSection />
                         {
-                            !isLoadingPressReleaseCategory && pressReleaseCategory.length > 0 && (
-                                <History items={pressReleaseCategory} isHome={true} />
+                            !isLoadingStatistic && statistic.length > 0  &&(
+                                <StatisticsSection items={statistic}/>
+                            )
+                        } 
+                        {
+                            !isLoadingPressReleaseDetails && pressReleaseDetails.length > 0 && (
+                                <HistoryList items={pressReleaseDetails} isHome={true} />
                             )
                         } 
                         {
