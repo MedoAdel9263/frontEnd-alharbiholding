@@ -21,6 +21,8 @@ import ContactUsComponent from '../components/contact-us/ContactUs';
 import History from '../components/history/History';
 import HistoryList from '../components/history/HistoryList';
 import { useGetStatisticQuery } from '../utils/services/statistic.service';
+import { Constants } from '../Constants';
+import { DATA } from '../../data';
 
 
 
@@ -34,7 +36,9 @@ function HomePage() {
     const [contactInfo, setContactInfo] = useState<any>([]);
     const [pressReleaseDetails, setPressReleaseDetails] = useState<any>([]);
     const [statistic, setStatistic] = useState<any>([]);
-
+ if(Constants.ISPRODACTION){
+    
+ }
     const {
         data: partnerData,
         isLoading: isLoadingPartners,
@@ -85,50 +89,66 @@ function HomePage() {
 
     useEffect(() => {
 
-        if (isSuccessPartners)
+        if (isSuccessPartners && Constants.ISPRODACTION)
             setPartners(partnerData.results)
+        else
+        setPartners(DATA.partners)
     }, [isSuccessPartners]);
 
     useEffect(() => {
 
-        if (isSuccessMainslider)
+        if (isSuccessMainslider && Constants.ISPRODACTION)
             setMainSlider(mainSliderData.results)
+        else
+        setMainSlider(DATA.mainSlider)
     }, [isSuccessMainslider]);
 
     useEffect(() => {
 
-        if (isSuccessCompanyCategory)
+        if (isSuccessCompanyCategory && Constants.ISPRODACTION)
             setCompanyCategory(companyCategoryData.data)
+        else
+        setCompanyCategory(DATA.companyCategory)
     }, [isSuccessCompanyCategory]);
 
     useEffect(() => {
 
-        if (isSuccessCompanies)
+        if (isSuccessCompanies && Constants.ISPRODACTION)
             setCompanies(companiesData.results)
+        else
+        setCompanies(DATA.ourCompanies)
     }, [isSuccessCompanies]);
 
     useEffect(() => {
        
-        if (isSuccessContactInfo)
+        if (isSuccessContactInfo && Constants.ISPRODACTION)
             setContactInfo(contactInfoData.results)
+        else
+        setContactInfo(DATA.contactInfo)
     }, [isSuccessContactInfo]);
 
     useEffect(() => {
        
-        if (isSuccessAboutUs)
+        if (isSuccessAboutUs && Constants.ISPRODACTION)
             setAboutUs(aboutUsData.data)
+        else
+        setAboutUs(DATA.aboutUs)
     }, [isSuccessAboutUs]);
 
     useEffect(() => {
        
-        if (isSuccessPressReleaseDetails)
+        if (isSuccessPressReleaseDetails && Constants.ISPRODACTION)
             setPressReleaseDetails(pressReleaseDetailsData.results?.slice(-3))
+        else
+        setPressReleaseDetails(DATA.pressReleaseDetails.slice(-3))
     }, [isSuccessPressReleaseDetails]);
 
     useEffect(() => {
        
-        if (isSuccessStatistic)
+        if (isSuccessStatistic && Constants.ISPRODACTION)
             setStatistic(statisticData.data)
+        else
+        setStatistic(DATA.statistic)
     }, [isSuccessStatistic]);
 
     useEffect(() => {
@@ -144,7 +164,7 @@ function HomePage() {
     return (
         <>
             {
-                isSuccessContactInfo && isSuccessCompanies && isSuccessCompanyCategory && isSuccessContactInfo && isSuccessMainslider && isSuccessAboutUs && isSuccessPressReleaseDetails && isSuccessStatistic ?
+               ( Constants.ISPRODACTION && isSuccessContactInfo && isSuccessCompanies && isSuccessCompanyCategory && isSuccessContactInfo && isSuccessMainslider && isSuccessAboutUs && isSuccessPressReleaseDetails && isSuccessStatistic) ||  !Constants.ISPRODACTION ?
                     <>
                     {
                             !isLoadingContactInfo && contactInfo.length > 0 && (

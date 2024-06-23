@@ -1,4 +1,5 @@
 import React from 'react'
+import { Constants } from '../Constants'
 
 function AboutUsItemCard({item ,image}:{item:any,image:string}) {
   return (
@@ -12,9 +13,9 @@ function AboutUsItemCard({item ,image}:{item:any,image:string}) {
     <img src={image} className='rounded-[5px] object-cover w-full md:w-[15rem] lg:w-[20rem]'/>
     </div>
     <div className='flex-1'>
-        <h3 className='text-md font-bold leading-[1.25] text-accent-900 dark:text-white md:text-lg'>{item?.attributes?.Title}</h3>
+        <h3 className='text-md font-bold leading-[1.25] text-accent-900 dark:text-white md:text-lg'>{Constants.ISPRODACTION ? item.attributes.Title : item.Title}</h3>
         <div className='mt-8'>
-        {item?.attributes?.Description}
+        {Constants.ISPRODACTION ? item.attributes.Description : item.Description}
         </div>
     </div>
         </div>

@@ -6,8 +6,11 @@ import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Loader from '../components/loader/Loader';
 import HistoryList from '../components/history/HistoryList';
+import { Constants } from '../Constants';
+import { DATA } from '../../data';
 
 function HistoryListPage() {
+  debugger;
   const route = useParams();
 
   const [contactInfo, setContactInfo] = useState<any>([]);
@@ -20,7 +23,7 @@ function HistoryListPage() {
   } = useGetContactInfoQuery();
 
   React.useEffect(() => {
-    route
+    route && Constants.ISPRODACTION
       ?
       pressReleaseDetailsData({
         id: route.id
@@ -30,10 +33,13 @@ function HistoryListPage() {
   }, [isSuccess]);
 
 
-  useEffect(() => {
 
-    if (isSuccessContactInfo)
+  useEffect(() => {
+debugger;
+    if (isSuccessContactInfo && Constants.ISPRODACTION)
       setContactInfo(contactInfoData.results)
+    else
+      setContactInfo(DATA.contactInfo)
   }, [isSuccessContactInfo]);
 
 
@@ -53,10 +59,16 @@ function HistoryListPage() {
   return (
     <>
       {
-        !isLoadingContactInfo && contactInfo.length && isSuccess ?
+        (!isLoadingContactInfo && contactInfo.length > 0 && isSuccess && Constants.ISPRODACTION) || !Constants.ISPRODACTION && contactInfo.length > 0  ?
           <>
             <Header items={contactInfo} />
-            <HistoryList items={data.results} isHome={false} />
+            {
+              Constants.ISPRODACTION
+                ?
+                <HistoryList items={data.results} isHome={false} />
+                :
+                <HistoryList items={DATA.pressReleaseDetails.filter(x => x.Category.toString() == route.id)} isHome={false} />
+            }
             <Footer items={contactInfo} />
           </>
           :

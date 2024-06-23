@@ -6,6 +6,8 @@ import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Loader from '../components/loader/Loader';
 import HistoryItem from '../components/history/HistoryItem';
+import { Constants } from '../Constants';
+import { DATA } from '../../data';
 
 function HistoryDetailsPage() {
   const route = useParams();
@@ -21,7 +23,7 @@ function HistoryDetailsPage() {
 
   React.useEffect(() => {
     debugger;
-    route
+    route && Constants.ISPRODACTION
       ?
       pressReleaseDetailsData({
         id: route.id
@@ -31,12 +33,14 @@ function HistoryDetailsPage() {
   }, [isSuccess]);
 
 
+ 
   useEffect(() => {
-
-    if (isSuccessContactInfo)
-      setContactInfo(contactInfoData.results)
-  }, [isSuccessContactInfo]);
-
+       
+    if (isSuccessContactInfo && Constants.ISPRODACTION)
+        setContactInfo(contactInfoData.results)
+    else
+    setContactInfo(DATA.contactInfo)
+}, [isSuccessContactInfo]);
 
 
   useEffect(() => {
@@ -54,10 +58,15 @@ function HistoryDetailsPage() {
   return (
     <>  
       {
-        (!isLoadingContactInfo && contactInfo.length && isSuccess) ?
+        (!isLoadingContactInfo && contactInfo.length && isSuccess && Constants.ISPRODACTION) || (!Constants.ISPRODACTION && contactInfo.length > 0) ?
           <>
             <Header items={contactInfo} />
-            <HistoryItem item={data} />
+            {
+              Constants.ISPRODACTION ?
+              <HistoryItem item={data} />
+              :
+              <HistoryItem item={DATA.pressReleaseDetails.filter(x => x.id.toString() == route.id).pop()} />
+            }
             <Footer items={contactInfo} />
           </>
           :

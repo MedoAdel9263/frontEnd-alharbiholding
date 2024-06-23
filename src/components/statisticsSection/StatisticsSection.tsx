@@ -1,4 +1,5 @@
 import React from 'react'
+import { Constants } from '../../Constants'
 
 function StatisticsSection({items}:{items:any}) {
     return (
@@ -14,9 +15,9 @@ function StatisticsSection({items}:{items:any}) {
                         </span>
                         <div className="-ml-5 flex min-h-[120px] flex-1 flex-col justify-center  rounded-[5px] bg-accent-100 p-30px py-2.5 pl-10  bg-gray-200">
                             <h3 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 text-white md:text-2xl">
-                                <span className='text-[#141416]'>{items[0] && items[0]?.attributes?.Title}</span>
+                                <span className='text-[#141416]'>{items[0] && Constants.ISPRODACTION ? items[0]?.attributes?.Title : items[0]?.Title}</span>
                             </h3>
-                            <p className="-mt-2.5 text-gray-500">{items[0] && items[0]?.attributes?.Description}</p>
+                            <p className="-mt-2.5 text-gray-500">{items[0] && Constants.ISPRODACTION ? items[0]?.attributes?.Description : items[0]?.Description}</p>
                         </div>
                     </div>
                 </div>
@@ -29,9 +30,9 @@ function StatisticsSection({items}:{items:any}) {
                         </span>
                         <div className="-ml-5 flex min-h-[120px] flex-1 flex-col justify-center  rounded-[5px] bg-accent-100 p-30px py-2.5 pl-10  bg-gray-200">
                         <h3 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 text-white md:text-2xl">
-                                <span className='text-[#141416]'>{items[1] && items[1]?.attributes?.Title}</span>
+                                <span className='text-[#141416]'>{items[1] && Constants.ISPRODACTION ? items[1]?.attributes?.Title : items[1]?.Title}</span>
                             </h3>
-                            <p className="-mt-2.5 text-gray-500">{items[1] && items[1]?.attributes?.Description}</p>
+                            <p className="-mt-2.5 text-gray-500">{items[1] && Constants.ISPRODACTION ? items[1]?.attributes?.Description : items[1]?.Description}</p>
                         </div>
                     </div>
                 </div>
@@ -44,9 +45,9 @@ function StatisticsSection({items}:{items:any}) {
                         </span>
                         <div className="-ml-5 flex min-h-[120px] flex-1 flex-col justify-center  rounded-[5px] bg-accent-100 p-30px py-2.5 pl-10  bg-gray-200">
                         <h3 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 text-white md:text-2xl">
-                                <span className='text-[#141416]'>{items[2] && items[2]?.attributes?.Title}</span>
+                                <span className='text-[#141416]'>{items[2] && Constants.ISPRODACTION ? items[2]?.attributes?.Title : items[2]?.Title}</span>
                             </h3>
-                            <p className="-mt-2.5 text-gray-500">{items[2] && items[2]?.attributes?.Description}</p>
+                            <p className="-mt-2.5 text-gray-500">{items[2] && Constants.ISPRODACTION ? items[2]?.attributes?.Description : items[2]?.Description}</p>
                         </div>
                     </div>
                 </div>
@@ -59,9 +60,9 @@ function StatisticsSection({items}:{items:any}) {
                         </span>
                         <div className="-ml-5 flex min-h-[120px] flex-1 flex-col justify-center  rounded-[5px] bg-accent-100 p-30px py-2.5 pl-10  bg-gray-200">
                         <h3 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 text-white md:text-2xl">
-                                <span className='text-[#141416]'>{items[3] && items[3]?.attributes?.Title}</span>
+                                <span className='text-[#141416]'>{items[3] && Constants.ISPRODACTION ? items[3]?.attributes?.Title : items[3]?.Title}</span>
                             </h3>
-                            <p className="-mt-2.5 text-gray-500">{items[3] && items[3]?.attributes?.Description}</p>
+                            <p className="-mt-2.5 text-gray-500">{items[3] && Constants.ISPRODACTION ? items[3]?.attributes?.Description : items[3]?.Description}</p>
                         </div>
                     </div>
                 </div>

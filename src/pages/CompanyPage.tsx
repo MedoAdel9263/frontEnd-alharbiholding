@@ -6,6 +6,8 @@ import Loader from '../components/loader/Loader';
 import OurCompany from '../components/our-companies/OurCompany';
 import { useGetCompaniesQuery } from '../utils/services/ourCompanies.service';
 import { useGetOurCompanyCategoryQuery } from '../utils/services/ourCompaniesCategory.service';
+import { Constants } from '../Constants';
+import { DATA } from '../../data';
 
 function CompanyPage() {
     const [contactInfo, setContactInfo] = useState<any>([]);
@@ -32,20 +34,27 @@ function CompanyPage() {
     
     useEffect(() => {
 
-        if (isSuccessCompanyCategory)
+        if (isSuccessCompanyCategory && Constants.ISPRODACTION)
             setCompanyCategory(companyCategoryData.data)
+        else
+        setCompanyCategory(DATA.companyCategory)
     }, [isSuccessCompanyCategory]);
 
     useEffect(() => {
 
-        if (isSuccessCompanies)
+        if (isSuccessCompanies && Constants.ISPRODACTION)
             setCompanies(companiesData.results)
+        else
+        setCompanies(DATA.ourCompanies)
     }, [isSuccessCompanies]);
+
 
     useEffect(() => {
        
-        if (isSuccessContactInfo)
+        if (isSuccessContactInfo && Constants.ISPRODACTION)
             setContactInfo(contactInfoData.results)
+        else
+        setContactInfo(DATA.contactInfo)
     }, [isSuccessContactInfo]);
 
 

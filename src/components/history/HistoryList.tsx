@@ -1,9 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { Constants } from '../../Constants';
 
 function HistoryList({ items, isHome }: { items: any, isHome: boolean }) {
     const router = useNavigate();
-
+    let pattern = '/history-list/';
+    console.log(items[0]?.Image.replace(new RegExp('/history-list/'), '/'))
     return (
         <section className='section-padding-primary overflow-hidden bg-white dark:bg-accent-700 [.light_&]:pt-0 px-[0px] lg:px-[70px] md:px-[40px] ms:px-[30px] min:h-[100px]'>
             <div className="mb-10 flex flex-wrap items-end justify-between gap-x-20 gap-y-10 md:mb-[2.75rem]">
@@ -34,8 +36,8 @@ function HistoryList({ items, isHome }: { items: any, isHome: boolean }) {
                                 <div onClick={() => router(`/history-item/${item?.id}`)} key={index} data-aos="fade-up" data-aos-delay="200" className='w-full px-4 md:w-1/2 md:px-[15px] lg:w-1/3 aos-init aos-animate cursor-pointer'>
                                     <article className="group/blog relative z-[1] flex h-full min-h-[452px] flex-col  overflow-hidden rounded-[5px] p-6 md:p-[1.875rem]">
                                         <span className='absolute inset-0 z-[2] bg-accent-900/50'></span>
-                                        <img src={`http://localhost:1337${item?.Image?.url!}`} loading="lazy" decoding="async" data-nimg="fill" className='pointer-events-none object-cover opacity-0 [filter:blur(10px)] [transform:translatex(50%)_scalex(2)] [transition:all_500ms_ease] group-hover/blog:opacity-100 group-hover/blog:[filter:blur(0px)] group-hover/blog:[transform:translatex(0)_scalex(1)] absolute h-full w-full left-0 top-0' />
-                                        <img src={`http://localhost:1337${item?.Image?.url!}`} loading="lazy" decoding="async" data-nimg="fill" className='pointer-events-none object-cover [transition:all_500ms_ease] group-hover/blog:opacity-0 group-hover/blog:[filter:blur(10px)] group-hover/blog:[transform:translatex(-50%)_scalex(2)] absolute h-full w-full left-0 top-0' />
+                                        <img src={Constants.ISPRODACTION ? Constants.HOSTURL + item?.Image?.url! : 'http://localhost:5174/' + item?.Image.replace(new RegExp('/history-list/'), '/')  } loading="lazy" decoding="async" data-nimg="fill" className='pointer-events-none object-cover opacity-0 [filter:blur(10px)] [transform:translatex(50%)_scalex(2)] [transition:all_500ms_ease] group-hover/blog:opacity-100 group-hover/blog:[filter:blur(0px)] group-hover/blog:[transform:translatex(0)_scalex(1)] absolute h-full w-full left-0 top-0' />
+                                        <img src={Constants.ISPRODACTION ? Constants.HOSTURL + item?.Image?.url! : 'http://localhost:5174/' + item?.Image.replace(new RegExp('/history-list/'), '/') } loading="lazy" decoding="async" data-nimg="fill" className='pointer-events-none object-cover [transition:all_500ms_ease] group-hover/blog:opacity-0 group-hover/blog:[filter:blur(10px)] group-hover/blog:[transform:translatex(-50%)_scalex(2)] absolute h-full w-full left-0 top-0' />
                                         <div className="mt-auto max-w-[270px] space-y-2 text-white md:space-y-5">
                                             <h3 className="text-md font-bold leading-[1.25]  md:text-lg">
                                                 <a aria-label="We implement state-of-the-art encryption" className="text-white transition-colors duration-300   relative z-[2]" >{item?.Title!}</a>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Constants } from '../../Constants'
 
 function AboutUs({aboutUs}:{aboutUs:any}) {
     return (
@@ -9,7 +10,7 @@ function AboutUs({aboutUs}:{aboutUs:any}) {
                         <div className="text-left">
                             <h2 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900  md:text-2xl">About Us</h2>
                             <p className="mt-5 whitespace-pre-line">
-                              {aboutUs[0].attributes.Description}
+                              {Constants.ISPRODACTION ? aboutUs[0].attributes.Description : aboutUs[0].Description}
                             </p>
                         </div>
                     </div>

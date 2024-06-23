@@ -5,6 +5,8 @@ import { useGetContactInfoQuery } from '../utils/services/contactInfo.service';
 import Loader from '../components/loader/Loader';
 import { useGetPartnersQuery } from '../utils/services/ourPartners.service';
 import Partners from '../components/partners/Partners';
+import { Constants } from '../Constants';
+import { DATA } from '../../data';
 
 function PartnerListPage() {
 
@@ -24,16 +26,21 @@ function PartnerListPage() {
     } = useGetPartnersQuery();
 
 
-    useEffect(() => {
 
-        if (isSuccessContactInfo)
+    useEffect(() => {
+       
+        if (isSuccessContactInfo && Constants.ISPRODACTION)
             setContactInfo(contactInfoData.results)
+        else
+        setContactInfo(DATA.contactInfo)
     }, [isSuccessContactInfo]);
 
     useEffect(() => {
 
-        if (isSuccessPartners)
+        if (isSuccessPartners && Constants.ISPRODACTION)
             setPartners(partnerData.results)
+        else
+        setPartners(DATA.partners)
     }, [isSuccessPartners]);
 
     useEffect(() => {

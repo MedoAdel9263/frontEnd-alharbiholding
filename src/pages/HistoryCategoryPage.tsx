@@ -5,6 +5,8 @@ import { useGetContactInfoQuery } from '../utils/services/contactInfo.service';
 import Footer from '../components/footer/Footer'
 import { useGetPressReleasesCategoryQuery } from '../utils/services/pressReleaseCategory.service';
 import History from '../components/history/History';
+import { Constants } from '../Constants';
+import { DATA } from '../../data';
 
 function HistoryCategoryPage() {
 
@@ -23,16 +25,21 @@ function HistoryCategoryPage() {
     isSuccess: isSuccessPressReleaseCategory,
   } = useGetPressReleasesCategoryQuery();
 
-  useEffect(() => {
-
-    if (isSuccessContactInfo)
-      setContactInfo(contactInfoData.results)
-  }, [isSuccessContactInfo]);
 
   useEffect(() => {
+       
+    if (isSuccessContactInfo && Constants.ISPRODACTION)
+        setContactInfo(contactInfoData.results)
+    else
+    setContactInfo(DATA.contactInfo)
+}, [isSuccessContactInfo]);
 
-    if (isSuccessPressReleaseCategory)
+  useEffect(() => {
+
+    if (isSuccessPressReleaseCategory && Constants.ISPRODACTION)
       setPressReleaseCategory(pressReleaseCategoryData.results)
+    else
+    setPressReleaseCategory(DATA.pressReleaseCategory)
   }, [isSuccessPressReleaseCategory]);
 
   useEffect(() => {

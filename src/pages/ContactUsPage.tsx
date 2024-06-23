@@ -6,6 +6,8 @@ import Footer from '../components/footer/Footer';
 import Loader from '../components/loader/Loader';
 import ContactUsComponent from '../components/contact-us/ContactUs';
 import ContactUsInfo from '../components/contact-us/ContactUsInfo';
+import { Constants } from '../Constants';
+import { DATA } from '../../data';
 
 function ContactUsPage() {
 
@@ -17,11 +19,14 @@ function ContactUsPage() {
         isSuccess: isSuccessContactInfo,
     } = useGetContactInfoQuery();
     
+
     useEffect(() => {
        
-        if (isSuccessContactInfo)
-            setContactInfo(contactInfoData.results)
-    }, [isSuccessContactInfo]);
+      if (isSuccessContactInfo && Constants.ISPRODACTION)
+          setContactInfo(contactInfoData.results)
+      else
+      setContactInfo(DATA.contactInfo)
+  }, [isSuccessContactInfo]);
     
     useEffect(() => {
         setTimeout(() => {

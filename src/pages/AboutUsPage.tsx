@@ -5,6 +5,8 @@ import Footer from '../components/footer/Footer';
 import { useGetContactInfoQuery } from '../utils/services/contactInfo.service';
 import Loader from '../components/loader/Loader';
 import AboutUsCategory from '../components/about-us/AboutUsCategory';
+import { DATA } from '../../data';
+import { Constants } from '../Constants';
 
 function AboutUsPage() {
 
@@ -17,9 +19,11 @@ function AboutUsPage() {
     } = useGetAboutUsQuery();
 
     useEffect(() => {
-
-        if (isSuccessAboutUs)
+       
+        if (isSuccessAboutUs && Constants.ISPRODACTION)
             setAboutUs(aboutUsData.data)
+        else
+        setAboutUs(DATA.aboutUs)
     }, [isSuccessAboutUs]);
 
     const [contactInfo, setContactInfo] = useState<any>([]);
@@ -30,10 +34,13 @@ function AboutUsPage() {
         isSuccess: isSuccessContactInfo,
     } = useGetContactInfoQuery();
 
-    useEffect(() => {
 
-        if (isSuccessContactInfo)
+    useEffect(() => {
+       
+        if (isSuccessContactInfo && Constants.ISPRODACTION)
             setContactInfo(contactInfoData.results)
+        else
+        setContactInfo(DATA.contactInfo)
     }, [isSuccessContactInfo]);
 
     useEffect(() => {

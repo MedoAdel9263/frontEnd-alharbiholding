@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CompamyCategoyCard from '../../common/CompamyCategoyCard'
 import CompaniesCard from '../../common/CompaniesCard'
 import CompanyDetails from './CompanyDetails';
+import { Constants } from '../../Constants';
 
 function OurCompany({ companies, companiesCategory ,isHome }: { companies: any[], companiesCategory: any[] ,isHome:boolean}) {
 
@@ -44,7 +45,7 @@ function OurCompany({ companies, companiesCategory ,isHome }: { companies: any[]
                             <div className=' mb-10 w-full px-[15px]'>
                             <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 mx-[-15px] gap-5'>
                             {
-                                companies.filter(company => company?.company_category?.id == categoryId).map((item,index) => {
+                                companies.filter(company => Constants.ISPRODACTION ? company?.company_category?.id == categoryId : company?.company_category == categoryId).map((item,index) => {
                                     return (
                                         <CompaniesCard key={index} item={item} />
                                     )
@@ -58,7 +59,7 @@ function OurCompany({ companies, companiesCategory ,isHome }: { companies: any[]
                          <div className=' mb-10 w-full px-[15px]'>
                          <div className='grid grid-cols-1 mx-[-15px] gap-5'>
                          {
-                             companies.filter(company => company?.company_category?.id == categoryId).map((item,index) => {
+                             companies.filter(company => Constants.ISPRODACTION ? company?.company_category?.id == categoryId : company?.company_category == categoryId).map((item,index) => {
                                  return (
                                      <CompanyDetails key={index} item={item} />
                                  )

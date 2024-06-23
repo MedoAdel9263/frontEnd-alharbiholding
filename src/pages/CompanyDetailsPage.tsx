@@ -7,6 +7,8 @@ import Loader from '../components/loader/Loader';
 import { useGetContactInfoQuery } from '../utils/services/contactInfo.service';
 import Footer from '../components/footer/Footer';
 import CompanyDetails from '../components/our-companies/CompanyDetails';
+import { Constants } from '../Constants';
+import { DATA } from '../../data';
 
 function CompanyDetailsPage() {
     const route = useParams();
@@ -22,7 +24,7 @@ function CompanyDetailsPage() {
   
     React.useEffect(() => {
       debugger;
-      route
+      route 
         ?
         companyDetailsData({
           id: route.id
@@ -32,11 +34,14 @@ function CompanyDetailsPage() {
     }, [isSuccess]);
   
   
+
     useEffect(() => {
-  
-      if (isSuccessContactInfo)
-        setContactInfo(contactInfoData.results)
-    }, [isSuccessContactInfo]);
+       
+      if (isSuccessContactInfo && Constants.ISPRODACTION)
+          setContactInfo(contactInfoData.results)
+      else
+      setContactInfo(DATA.contactInfo)
+  }, [isSuccessContactInfo]);
   
   
   

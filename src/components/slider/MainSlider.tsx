@@ -1,6 +1,7 @@
 import { Carousel, CustomFlowbiteTheme } from "flowbite-react";
 import MainSliderItem from "./MainSliderItem";
 import React from "react";
+import { Constants } from "../../Constants";
 const MainSlider = ({ mainSlides }: { mainSlides: any[] }) => {
   const mainSliderTheme: CustomFlowbiteTheme["carousel"] = {
     scrollContainer: {
@@ -14,7 +15,7 @@ const MainSlider = ({ mainSlides }: { mainSlides: any[] }) => {
         {mainSlides &&
           mainSlides.map((slide: any, index: number) => {
             return (
-              <MainSliderItem imgSrc={'http://localhost:1337' + slide.Image.url } key={index}>
+              <MainSliderItem imgSrc={Constants.ISPRODACTION ? Constants.HOSTURL + slide.Image.url : `${slide.Image}`  } key={index}>
                 <div className="absolute w-full h-full text-center justify-around bottom-[1rem] left-0 flex gap-4 justify-between items-center lg:p-10 md:p-5 p-[1rem] text-white z-20">
                   <p className="2xl:text-[5.5rem] xl:text-[4.5rem] lg:text-[3.5rem] md:text-[3rem] sm:text-[2.5rem] xs:text-[2rem] font-semibold capitalize w-2/3">
                     {slide.Title}
