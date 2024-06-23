@@ -24,7 +24,7 @@ function CompanyDetailsPage() {
   
     React.useEffect(() => {
       debugger;
-      route 
+      route && Constants.ISPRODACTION
         ?
         companyDetailsData({
           id: route.id
@@ -60,10 +60,16 @@ function CompanyDetailsPage() {
     return (
       <>  
         {
-          (!isLoadingContactInfo && contactInfo.length && isSuccess) ?
+          (!isLoadingContactInfo && contactInfo.length > 0 && isSuccess && Constants.ISPRODACTION) ||
+          (!Constants.ISPRODACTION && contactInfo.length > 0) ?
             <>
               <Header items={contactInfo} />
-              <CompanyDetails item={data} />
+              {
+                 Constants.ISPRODACTION ?
+                 <CompanyDetails item={data} />
+                 :
+                 <CompanyDetails item={DATA.ourCompanies.filter(x => x.id.toString() == route.id).pop()} />
+              }
               <Footer items={contactInfo} />
             </>
             :

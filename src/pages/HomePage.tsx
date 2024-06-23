@@ -36,6 +36,7 @@ function HomePage() {
     const [contactInfo, setContactInfo] = useState<any>([]);
     const [pressReleaseDetails, setPressReleaseDetails] = useState<any>([]);
     const [statistic, setStatistic] = useState<any>([]);
+    const [isloading , setIslodaing] = useState<boolean>(true);
  if(Constants.ISPRODACTION){
     
  }
@@ -161,10 +162,17 @@ function HomePage() {
           }, 100);
     },[])
 
+    useEffect(() => {
+        setTimeout(() => {
+            setIslodaing(false)
+          }, 2500);
+    },[])
+
     return (
-        <>
+        <> 
             {
-               ( Constants.ISPRODACTION && isSuccessContactInfo && isSuccessCompanies && isSuccessCompanyCategory && isSuccessContactInfo && isSuccessMainslider && isSuccessAboutUs && isSuccessPressReleaseDetails && isSuccessStatistic) ||  !Constants.ISPRODACTION ?
+               ( Constants.ISPRODACTION && isSuccessContactInfo && isSuccessCompanies && isSuccessCompanyCategory && isSuccessContactInfo && isSuccessMainslider && isSuccessAboutUs && isSuccessPressReleaseDetails && isSuccessStatistic) ||  
+               (!Constants.ISPRODACTION && Partners.length > 0 && mainSlider.length > 0 && companyCategory.length > 0 && companies.length > 0 && aboutUs.length > 0 && contactInfo.length > 0 && pressReleaseDetails.length > 0 && statistic.length > 0 && !isloading) ?
                     <>
                     {
                             !isLoadingContactInfo && contactInfo.length > 0 && (
