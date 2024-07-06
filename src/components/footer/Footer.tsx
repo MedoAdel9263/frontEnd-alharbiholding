@@ -119,7 +119,7 @@ function Footer({ items }: { items: any }) {
                     <div className="flex min-h-[90px] items-center py-5">
                         <div className="w-full">
                             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 md:gap-x-10 w-full">
-                                <p>© alharbiholding  2024 | All Rights Reserved</p>
+                                <p>© alharbiholding | All Rights Reserved</p>
 
                             </div>
                         </div>

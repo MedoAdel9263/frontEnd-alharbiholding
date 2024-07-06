@@ -87,16 +87,16 @@ The company sought to apply international standards in the local market, and foc
     ],
     mainSlider: [
         {
-            Title: 'ALHarbi Holding Company',
-            Image: './data/7bfe3a28-e64f-4b23-a049-54cd490a5e3b.jpg'
+            Title: 'Astra Mining Company',
+            Image: './data/banner3.png'
         },
         {
-            Title: 'Release of Bold Feet washing device',
-            Image: './data/167.jpg'
+            Title: 'Advanced Piping Solutions',
+            Image: 'https://www.advancedpiping.com.sa/wp-content/uploads/2023/11/1.jpg'
         },
         {
-            Title: 'Transformation to Public Co.',
-            Image: './data/235.jpg'
+            Title: 'Saudi Marble & Granite Factory Company',
+            Image: './data/1400x498_H1_1.jpg'
         }
     ],
     statistic: [
@@ -147,11 +147,6 @@ The company sought to apply international standards in the local market, and foc
             id: 8,
             Title: 'Mining',
             index:4,
-        },
-        {
-            id: 9,
-            Title: 'Realstate',
-            index:5,
         }
     ],
     ourCompanies: [
@@ -187,14 +182,14 @@ The company sought to apply international standards in the local market, and foc
             Image: '/data/arbk.gif',
             company_category: 4,
         },
-        {
+        /*{
             id:5,
             Title: 'ArtStone',
             Description: 'Artstone, a division of SMG, the leading Saudi Company in Marble and Granite, is specialized in providing its customers a variety of finest materials available in the world of coverings. We have selected suppliers and manufacturers from around the globe to offer products that are unique in their beauty and special in their decorative ideas.',
             Link: 'http://www.smg.com.sa/en/divisions.htm',
             Image: '/data/ArtstoneIN.jpg',
             company_category: 5,
-        },
+        },*/
         {
             id:6,
             Title: 'Bold Sanitary',
@@ -211,7 +206,7 @@ The company sought to apply international standards in the local market, and foc
             Image: '/data/copm-loc-4.png',
             company_category: 4,
         },
-        {
+        /*{
             id:8,
             Title: 'Natural Stone',
             Description: 'Natural Stone is a division of SMG, specialized in lime stone manufacturing, Natural Stone owns and operates three quarries in Riyadh Area for lime stone, Our Italian production lines are one of the state-of-the-art machinery with production capacity of above 4500 m² a day with high quality',
@@ -227,14 +222,14 @@ The company sought to apply international standards in the local market, and foc
             Image: '/data/SalalahIN.jpg',
             company_category: 5,
         },
-        {
-            id:10,
-            Title: 'Saudi Marble & Granite Factory Company',
-            Description: 'The Biggest Granite Factory in Saudi Arabia & It was established in 1991 a pioneer in Saudi Arabian mining and construction industries. Today the company operates several granite quarries producing a wide range of distinctive colors and qualities for the construction industry.',
-            Link: 'www.smg.com.sa',
-            Image: '/data/images (2).png',
-            company_category: 5,
-        },
+        // {
+        //     id:10,
+        //     Title: 'Saudi Marble & Granite Factory Company',
+        //     Description: 'The Biggest Granite Factory in Saudi Arabia & It was established in 1991 a pioneer in Saudi Arabian mining and construction industries. Today the company operates several granite quarries producing a wide range of distinctive colors and qualities for the construction industry.',
+        //     Link: 'www.smg.com.sa',
+        //     Image: '/data/images (2).png',
+        //     company_category: 5,
+        // },*/
         {
             id:11,
             Title: 'TAFEEL For Information Technology',
@@ -251,20 +246,37 @@ The company sought to apply international standards in the local market, and foc
             Image: '/data/tanhat-logo.png',
             company_category: 5,
         },
-        {
-            id:13,
-            Title: 'Tharawat Mining',
-            Description: 'Tharawat Mining Company is to practice activities relating to all the stages of the mining industry including the development and improvement of the mineral industry, its products and derivatives and all the related industries',
-            Link: 'http://www.tharawat.com.sa/',
-            Image: '/data/copm-loc-8.png',
-            company_category: 8,
-        },
+        
         {
             id:14,
             Title: 'United Cement Company',
             Description: 'United Cement is a new company under establishment but has a Quarry license for the exploration of the raw materials in the cement industry marble from the (Saadia) Mountain in Laith province, about 180km from Mecca and Jeddah. Which will establish the Portlan Cement Factory with production capacity of 5 million tons annually.',
             Link: 'www.unitedcement.com.sa',
             Image: '/data/cement-logo.png',
+            company_category: 8,
+        },
+        {
+            id:19,
+            Title: 'Saudi Marble & Granite Factory Company',
+            Description: 'The Biggest Granite Factory in Saudi Arabia & It was established in 1991 a pioneer in Saudi Arabian miningand construction industries. Today the company operates several granite quarries producing a wide range of distinctive colors and qualities for the construction industry.',
+            Link: 'http://www.smg.com.sa',
+            Image: '/data/images (2).png',
+            company_category: 8,
+        },
+        {
+            id:20,
+            Title: 'Astra Mining Company',
+            Description: 'Founded in 2011, Astra Mining (a subsidiary of Astra Industrial) is a Saudi limited liability company. The company is active in the exploration of ores and minerals in the Kingdom of Saudi Arabia and the establishment of factories to process them, which in turn is able to develop the manufacturing industries in the country.',
+            Link: 'http://www.astramining.sa',
+            Image: '/data/cropped-logo-2-1.png',
+            company_category: 8,
+        },
+        {
+            id:21,
+            Title: 'TANHAT Mining Company',
+            Description: 'Tanhat Mining Company is one of the leading manufactures of Granite & Marble in the Kingdom of Saudi Arabia. Tanhat Mining holds the concession of several quarries of Saudi Granite in the kingdom of Saudi Arabia.',
+            Link: 'http://tanhatmining.com/',
+            Image: '/data/tanhat-logo.png',
             company_category: 8,
         },
         {
@@ -293,10 +305,18 @@ The company sought to apply international standards in the local market, and foc
         },
         {
             id:18,
-            Title: 'Yara Ceramica',
-            Description: 'Yara Ceramica is established as a division of SMG, specialized in producing a range of ceramic tiles in distinctive colors and qualities for the construction industry. Our ceramic products are available in different sizes for walls floors & terraces satisfy our clients requirements',
-            Link: 'http://www.smg.com.sa/en/divisions.htm',
-            Image: '/data/Yaralogo.jpg',
+            Title: 'Ceramic Pipes Company',
+            Description: 'Ceramic Pipes Company (CPC) was established as Saudi jointed venture limited co. to produce the Vitrified Clay pipes and fittings of sizes 150 mm up to 600 mm dia. of capacity of 60,000 ton /year.',
+            Link: 'http://cpc.com.sa',
+            Image: '/data/cpclogo.jpg',
+            company_category: 5,
+        },
+        {
+            id:23,
+            Title: 'Advanced Pipes Solutions',
+            Description: 'As a specializing in the manufacture and supply of water, sewerage and high-quality industrial pipes, the Advanced Piping Solutions is focused on the future and employing advanced techniques coupled with the latest production.',
+            Link: 'https://www.advancedpiping.com.sa',
+            Image: '/data/logo-eng-1.png',
             company_category: 5,
         }
     ],

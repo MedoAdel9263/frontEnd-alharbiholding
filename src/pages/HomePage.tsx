@@ -8,7 +8,7 @@ import { useGetMainSliderQuery } from '../utils/services/mainSlider.service';
 import { useGetOurCompanyCategoryQuery } from '../utils/services/ourCompaniesCategory.service';
 import { useGetCompaniesQuery } from '../utils/services/ourCompanies.service';
 import Subscribe from '../components/subscribe/Subscribe';
-import StatisticsSection from '../components/statisticsSection/StatisticsSection';
+//import StatisticsSection from '../components/statisticsSection/StatisticsSection';
 import AboutUs from '../components/about-us/AboutUs';
 import Footer from '../components/footer/Footer';
 import { useGetAboutUsQuery } from '../utils/services/aboutUs.service';
@@ -190,11 +190,11 @@ function HomePage() {
                             )
                         }
                         <Subscribe />
-                        {
+                        {/* {
                             !isLoadingStatistic && statistic.length > 0  &&(
                                 <StatisticsSection items={statistic}/>
                             )
-                        } 
+                        }  */}
                         {
                             !isLoadingPressReleaseDetails && pressReleaseDetails.length > 0 && (
                                 <HistoryList items={pressReleaseDetails} isHome={true} />
@@ -206,11 +206,11 @@ function HomePage() {
                             )
                         } 
 
-                        {
+                        {/* {
                             !isLoadingPartners && Partners.length > 0 && (
                                 <PartnersCarousel items={Partners} />
                             )
-                        }
+                        } */}
                           {
                             !isLoadingContactInfo && contactInfo.length > 0 && (
                                 <ContactUsComponent items={contactInfo}/>

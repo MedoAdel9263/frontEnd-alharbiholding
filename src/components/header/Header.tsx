@@ -37,13 +37,15 @@ export default function Header({ items }: { items: any }) {
                     </div>
                     <div className='hidden lg:flex flex-col flex-1'>
                         <div className="hidden lg:flex space-x-8">
+                        <a onClick={() => router('/')} className="text-primary py-4 cursor-pointer">Home</a>
+
                             <a onClick={() => router('/history-category')} className="text-primary py-4 cursor-pointer">History</a>
                             <a onClick={() => router('/company')} className="text-primary py-4 cursor-pointer">Companies</a>
-                            <a onClick={() => router('/partners')} className="text-gray-700  py-4 cursor-pointer">Our Partners</a>
+                            {/* <a onClick={() => router('/partners')} className="text-gray-700  py-4 cursor-pointer">Our Partners</a> */}
                             <a onClick={() => router('/about-us')} className="text-gray-700  py-4 cursor-pointer">About Us</a>
                             <a onClick={() => router("/contact-us")} href="#contact" className="text-gray-700  py-4 cursor-pointer">Contact Us</a>
                         </div>
-                        <div className="hidden lg:flex flex-1' py-2 border-t border-gray-300">
+                        {/* <div className="hidden lg:flex flex-1' py-2 border-t border-gray-300">
                             <div className="text-center">
                                 <div className="text-gray-700 flex flex-row gap-5 justify-center items-center">
                                     <span className="text-base/[1] text-primary flex-none">
@@ -60,7 +62,7 @@ export default function Header({ items }: { items: any }) {
                                     {items[0].Address}
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="lg:hidden flex items-center">
                         {/* <button className="text-gray-500 focus:outline-none mr-4">
