@@ -3,8 +3,8 @@ import { Constants } from '../../Constants'
 
 function AboutUs({aboutUs}:{aboutUs:any}) {
     return (
-        <section className='section-padding-primary overflow-hidden bg-white dark:bg-accent-700 [.light_&]:pt-0'>
-        <div className="px-[16px] mx-0 md:mx-10 lg:mx-14">
+        <section className='section-padding-primary overflow-hidden bg-white [.light_&]:pt-0'>
+        {/* <div className="px-[16px] mx-0 md:mx-10 lg:mx-14">
                 <div className="grid items-center gap-12 lg:grid-cols-[.92fr_1fr] 2xl:gap-20">
                     <div className="lg:order-2 aos-init aos-animate" data-aos="fade-left" data-aos-delay="200">
                         <div className="text-left">
@@ -44,7 +44,28 @@ function AboutUs({aboutUs}:{aboutUs:any}) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+
+<div className='relative flex flex-col'>
+<div className='keen-slider max-md:order-2'>
+<div className='keen-slider__slide !overflow-visible'>
+    <div className='h-full rounded-[5px] p-6 transition-transform duration-350 hover:[transform:translateY(-.5rem)] sm:p-[50px]'>
+        <div className='flex flex-col gap-0 lg:gap-[50px] lg:flex-row  items-center'>
+    <div className='relative max-w-max flex-none'>
+    <img src="about/aboutus-1.jpg" className='rounded-[5px] object-cover h-auto lg:max-h-[22rem]'/>
+    </div>
+    <div className='flex-1 mt-[3rem] lg:mt-0'>
+        <h3 className='text-md font-bold leading-[1.25] !text-dynamic text-primary mb-[1.5rem]'>About Us</h3>
+        <div className='mt-8 text-[#848383]'>
+        {Constants.ISPRODACTION ? aboutUs[0].attributes.Description : aboutUs[1].Description}
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    </div>
         </section>
     )
 }

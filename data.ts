@@ -88,15 +88,18 @@ The company sought to apply international standards in the local market, and foc
     mainSlider: [
         {
             Title: 'Astra Mining Company',
-            Image: './data/banner3.png'
+            Image: './data/banner3.png',
+            description:'We provide our customers with a 100% guarantee to all our products.'
         },
         {
             Title: 'Advanced Piping Solutions',
-            Image: 'https://www.advancedpiping.com.sa/wp-content/uploads/2023/11/1.jpg'
+            Image: 'https://www.advancedpiping.com.sa/wp-content/uploads/2023/11/1.jpg',
+            description:'As a specializing in the manufacture and supply of water, sewerage and high-quality industrial pipes'
         },
         {
             Title: 'Saudi Marble & Granite Factory Company',
-            Image: './data/1400x498_H1_1.jpg'
+            Image: './data/1400x498_H1_1.jpg',
+            description:'The Biggest Granite Factory in Saudi Arabia & It was established in 1991 a pioneer in Saudi Arabian mining and construction industries.'
         }
     ],
     statistic: [

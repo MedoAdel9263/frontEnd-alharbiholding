@@ -62,3 +62,7 @@ body {
   padding-right: 1rem;
 }
 
+a:hover svg path , li:hover svg path  {
+  fill: #00503a;
+}
+

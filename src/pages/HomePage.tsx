@@ -189,7 +189,7 @@ function HomePage() {
                                 <OurCompany companies={companies} companiesCategory={companyCategory} isHome={true}/>
                             )
                         }
-                        <Subscribe />
+                        {/* <Subscribe /> */}
                         {/* {
                             !isLoadingStatistic && statistic.length > 0  &&(
                                 <StatisticsSection items={statistic}/>

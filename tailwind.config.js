@@ -40,6 +40,7 @@ export default {
         '3xl': '4rem',
         '4xl': '5rem',
         '5xl': '6rem',
+          'dynamic': 'calc(1.525rem + 3.3vw)',
       },
       colors: {
         primary: {
