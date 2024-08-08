@@ -5,7 +5,7 @@ function CompamyCategoyCard({ item ,categoryId,setCategoryId}: { item: any ,cate
     return (
         <li onClick={() => setCategoryId(item.id)} className={`bg-gray-100 border border-primary text-primary rounded-full mb-4 cursor-pointer ${categoryId == item.id ? 'bg-primary text-white' : ''}`}>
     <a className="flex py-[.5rem] px-[3rem] rounded-full" >
-      <span className={categoryId == item.id ? 'text-white text-bold' : 'text-black text-bold'}>{Constants.ISPRODACTION ? item.attributes.Title : item.Title}</span>
+      <span className={categoryId == item?.id ? 'text-white text-bold' : 'text-black text-bold'}>{Constants.ISPRODACTION ? item.attributes?.Title : item.Title}</span>
     </a>
   </li>
         // <button onClick={() => setCategoryId(item.id)} className={`our-cpmpany-btn bg-gray-200 dark:text-white overflow-hidden text-base leading-[1.1] font-bold font-secondary tracking-wide uppercase [transition:all_0.3s_linear] items-center md:min-h-[3.75rem] min-h-[3.5rem] px-6 md:px-7 py-2 md:py-3 transition-colors ease-in-out ring-offset-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 after:absolute after:h-full after:w-0 after:bottom-0 after:right-0 after:-z-1 after:[transition:all_.3s_ease-in-out] hover:text-white dark:hover:text-white hover:after:w-full hover:after:left-0 rounded-[5px] group/button relative z-1 flex !min-h-[3.5rem] justify-between gap-2 bg-accent-100 text-accent-900 dark:bg-accent-700 after:bg-primary hover:after:opacity-100 cursor-pointer ${categoryId == item.id ? 'bg-primary text-white' : ''}`}>

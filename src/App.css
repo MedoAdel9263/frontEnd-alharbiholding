@@ -66,3 +66,13 @@ a:hover svg path , li:hover svg path  {
   fill: #00503a;
 }
 
+.sub-title::before { 
+  content: "";
+  width: 100px;
+  position: absolute;
+  top: 50%;
+  left: 180px;
+  transform: translateY(-50%);
+  margin-right: -110px;
+  border: 1px solid #a39161 !important;
+}

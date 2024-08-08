@@ -23,28 +23,29 @@ import HistoryList from '../components/history/HistoryList';
 import { useGetStatisticQuery } from '../utils/services/statistic.service';
 import { Constants } from '../Constants';
 import { DATA } from '../../data';
+import { Carousel } from 'flowbite-react';
 
 
 
 function HomePage() {
 
-    const [Partners, setPartners] = useState<any>([]);
+    // const [Partners, setPartners] = useState<any>([]);
     const [mainSlider, setMainSlider] = useState<any>([]);
     const [companyCategory, setCompanyCategory] = useState<any>([]);
     const [companies, setCompanies] = useState<any>([]);
     const [aboutUs, setAboutUs] = useState<any>([]);
     const [contactInfo, setContactInfo] = useState<any>([]);
     const [pressReleaseDetails, setPressReleaseDetails] = useState<any>([]);
-    const [statistic, setStatistic] = useState<any>([]);
-    const [isloading , setIslodaing] = useState<boolean>(true);
- if(Constants.ISPRODACTION){
-    
- }
-    const {
-        data: partnerData,
-        isLoading: isLoadingPartners,
-        isSuccess: isSuccessPartners,
-    } = useGetPartnersQuery();
+    // const [statistic, setStatistic] = useState<any>([]);
+    const [isloading, setIslodaing] = useState<boolean>(true);
+    if (Constants.ISPRODACTION) {
+
+    }
+    // const {
+    //     data: partnerData,
+    //     isLoading: isLoadingPartners,
+    //     isSuccess: isSuccessPartners,
+    // } = useGetPartnersQuery();
 
     const {
         data: mainSliderData,
@@ -82,26 +83,26 @@ function HomePage() {
         isSuccess: isSuccessPressReleaseDetails,
     } = useGetPressReleasesDetailsQuery();
 
-    const {
-        data: statisticData,
-        isLoading: isLoadingStatistic,
-        isSuccess: isSuccessStatistic,
-    } = useGetStatisticQuery();
+    // const {
+    //     data: statisticData,
+    //     isLoading: isLoadingStatistic,
+    //     isSuccess: isSuccessStatistic,
+    // } = useGetStatisticQuery();
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (isSuccessPartners && Constants.ISPRODACTION)
-            setPartners(partnerData.results)
-        else
-        setPartners(DATA.partners)
-    }, [isSuccessPartners]);
+    //     if (isSuccessPartners && Constants.ISPRODACTION)
+    //         setPartners(partnerData.results)
+    //     else
+    //     setPartners(DATA.partners)
+    // }, [isSuccessPartners]);
 
     useEffect(() => {
 
         if (isSuccessMainslider && Constants.ISPRODACTION)
             setMainSlider(mainSliderData.results)
         else
-        setMainSlider(DATA.mainSlider)
+            setMainSlider(DATA.mainSlider)
     }, [isSuccessMainslider]);
 
     useEffect(() => {
@@ -109,7 +110,7 @@ function HomePage() {
         if (isSuccessCompanyCategory && Constants.ISPRODACTION)
             setCompanyCategory(companyCategoryData.data)
         else
-        setCompanyCategory(DATA.companyCategory)
+            setCompanyCategory(DATA.companyCategory)
     }, [isSuccessCompanyCategory]);
 
     useEffect(() => {
@@ -117,66 +118,65 @@ function HomePage() {
         if (isSuccessCompanies && Constants.ISPRODACTION)
             setCompanies(companiesData.results)
         else
-        setCompanies(DATA.ourCompanies)
+            setCompanies(DATA.ourCompanies)
     }, [isSuccessCompanies]);
 
     useEffect(() => {
-       
+
         if (isSuccessContactInfo && Constants.ISPRODACTION)
             setContactInfo(contactInfoData.results)
         else
-        setContactInfo(DATA.contactInfo)
+            setContactInfo(DATA.contactInfo)
     }, [isSuccessContactInfo]);
 
     useEffect(() => {
-       
+
         if (isSuccessAboutUs && Constants.ISPRODACTION)
             setAboutUs(aboutUsData.data)
         else
-        setAboutUs(DATA.aboutUs)
+            setAboutUs(DATA.aboutUs)
     }, [isSuccessAboutUs]);
 
     useEffect(() => {
-       
+
         if (isSuccessPressReleaseDetails && Constants.ISPRODACTION)
             setPressReleaseDetails(pressReleaseDetailsData.results?.slice(-3))
         else
-        setPressReleaseDetails(DATA.pressReleaseDetails.slice(-3))
+            setPressReleaseDetails(DATA.pressReleaseDetails.slice(-3))
     }, [isSuccessPressReleaseDetails]);
 
-    useEffect(() => {
-       
-        if (isSuccessStatistic && Constants.ISPRODACTION)
-            setStatistic(statisticData.data)
-        else
-        setStatistic(DATA.statistic)
-    }, [isSuccessStatistic]);
+    // useEffect(() => {     
+    //     if (isSuccessStatistic && Constants.ISPRODACTION)
+    //         setStatistic(statisticData.data)
+    //     else
+    //     setStatistic(DATA.statistic)
+    // }, [isSuccessStatistic]);
 
     useEffect(() => {
         setTimeout(() => {
-              window.scrollTo({
+            window.scrollTo({
                 top: 0,
                 behavior: 'smooth',
-              });
-            
-          }, 100);
-    },[])
+            });
+
+        }, 100);
+    }, [])
 
     useEffect(() => {
         setTimeout(() => {
             setIslodaing(false)
-          }, 2500);
-    },[])
+        }, 2500);
+    }, [])
 
     return (
-        <> 
+        <>
             {
-               ( Constants.ISPRODACTION && isSuccessContactInfo && isSuccessCompanies && isSuccessCompanyCategory && isSuccessContactInfo && isSuccessMainslider && isSuccessAboutUs && isSuccessPressReleaseDetails && isSuccessStatistic) ||  
-               (!Constants.ISPRODACTION && Partners.length > 0 && mainSlider.length > 0 && companyCategory.length > 0 && companies.length > 0 && aboutUs.length > 0 && contactInfo.length > 0 && pressReleaseDetails.length > 0 && statistic.length > 0 && !isloading) ?
+                (Constants.ISPRODACTION && isSuccessContactInfo && isSuccessCompanies && isSuccessCompanyCategory && isSuccessContactInfo && isSuccessMainslider && isSuccessAboutUs && isSuccessPressReleaseDetails) ||
+                    (!Constants.ISPRODACTION && mainSlider.length > 0 && companyCategory.length > 0 && companies.length > 0 && aboutUs.length > 0 && contactInfo.length > 0 && pressReleaseDetails.length > 0 && !isloading) ?
                     <>
-                    {
+                        {
                             !isLoadingContactInfo && contactInfo.length > 0 && (
-                                <Header items={contactInfo}/>
+                                <Header items={contactInfo} />
                             )
                         }
                         {
@@ -186,39 +186,27 @@ function HomePage() {
                         }
                         {
                             !isLoadingCompanies && !isLoadingCompanyCategory && companyCategory.length > 0 && companies.length && (
-                                <OurCompany companies={companies} companiesCategory={companyCategory} isHome={true}/>
+                                <OurCompany companies={companies} companiesCategory={companyCategory} isHome={true} />
                             )
                         }
-                        {/* <Subscribe /> */}
-                        {/* {
-                            !isLoadingStatistic && statistic.length > 0  &&(
-                                <StatisticsSection items={statistic}/>
-                            )
-                        }  */}
                         {
                             !isLoadingPressReleaseDetails && pressReleaseDetails.length > 0 && (
                                 <HistoryList items={pressReleaseDetails} isHome={true} />
                             )
-                        } 
+                        }
                         {
                             !isLoadingAboutUs && aboutUs.length > 0 && (
                                 <AboutUs aboutUs={aboutUs} />
                             )
-                        } 
-
-                        {/* {
-                            !isLoadingPartners && Partners.length > 0 && (
-                                <PartnersCarousel items={Partners} />
-                            )
-                        } */}
-                          {
+                        }
+                        {
                             !isLoadingContactInfo && contactInfo.length > 0 && (
-                                <ContactUsComponent items={contactInfo}/>
+                                <ContactUsComponent items={contactInfo} />
                             )
                         }
-                           {
+                        {
                             !isLoadingContactInfo && contactInfo.length && (
-                                <Footer items={contactInfo}/>
+                                <Footer items={contactInfo} />
                             )
                         }
                     </>
@@ -230,4 +218,4 @@ function HomePage() {
     );
 }
 
-export default  HomePage
+export default HomePage

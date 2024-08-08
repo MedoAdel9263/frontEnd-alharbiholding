@@ -30,7 +30,7 @@ export default {
         marquee: 'marquee 20s linear infinite',
       },
       fontFamily: {
-        secondary: ['Rajdhani', 'sans-serif'],
+        secondary: ["Roboto", "sans-serif"],
       },
       fontSize: {
         sm: '0.8rem',

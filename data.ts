@@ -185,14 +185,7 @@ The company sought to apply international standards in the local market, and foc
             Image: '/data/arbk.gif',
             company_category: 4,
         },
-        /*{
-            id:5,
-            Title: 'ArtStone',
-            Description: 'Artstone, a division of SMG, the leading Saudi Company in Marble and Granite, is specialized in providing its customers a variety of finest materials available in the world of coverings. We have selected suppliers and manufacturers from around the globe to offer products that are unique in their beauty and special in their decorative ideas.',
-            Link: 'http://www.smg.com.sa/en/divisions.htm',
-            Image: '/data/ArtstoneIN.jpg',
-            company_category: 5,
-        },*/
+
         {
             id:6,
             Title: 'Bold Sanitary',
@@ -209,14 +202,6 @@ The company sought to apply international standards in the local market, and foc
             Image: '/data/copm-loc-4.png',
             company_category: 4,
         },
-        /*{
-            id:8,
-            Title: 'Natural Stone',
-            Description: 'Natural Stone is a division of SMG, specialized in lime stone manufacturing, Natural Stone owns and operates three quarries in Riyadh Area for lime stone, Our Italian production lines are one of the state-of-the-art machinery with production capacity of above 4500 m² a day with high quality',
-            Link: '',
-            Image: '/data/riyadstone.jpg',
-            company_category: 5,
-        },
         {
             id:9,
             Title: 'Salalah',
@@ -225,14 +210,7 @@ The company sought to apply international standards in the local market, and foc
             Image: '/data/SalalahIN.jpg',
             company_category: 5,
         },
-        // {
-        //     id:10,
-        //     Title: 'Saudi Marble & Granite Factory Company',
-        //     Description: 'The Biggest Granite Factory in Saudi Arabia & It was established in 1991 a pioneer in Saudi Arabian mining and construction industries. Today the company operates several granite quarries producing a wide range of distinctive colors and qualities for the construction industry.',
-        //     Link: 'www.smg.com.sa',
-        //     Image: '/data/images (2).png',
-        //     company_category: 5,
-        // },*/
+
         {
             id:11,
             Title: 'TAFEEL For Information Technology',

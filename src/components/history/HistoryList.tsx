@@ -26,22 +26,22 @@ function HistoryList({ items, isHome }: { items: any, isHome: boolean }) {
             </div>
             <div className='mx-auto'>
 
-                <div className='-mx-4 flex flex-wrap justify-center gap-y-[30px]'>
+                <div className='-mx-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center gap-[30px]' style={{gridAutoRows: "1fr;"}}>
                     {
                         items.map((item, index) => {
                             return (
-                                <div onClick={() => router(`/history-item/${item?.id}`)} className="owl-item mr-[25px]" >
-  <div className="bg-white rounded animate__animated animate__fadeInUp" >
-    <div className="rounded-t">
-      <img src={Constants.ISPRODACTION ? Constants.HOSTURL + item?.Image?.url! :  item?.Image.replace(new RegExp('/history-list/'), '/')  } className="w-full h-48 rounded-t" alt="Image" />
-    </div>
-    <div className="rounded-b border border-t-0 p-4">
-      <a href="#" className="text-xl mb-3 block truncate">{item?.Title!}</a>
-      <p className="mb-3 truncate">{item?.description!}</p>
-      <a className="btn bg-primary text-white rounded-full py-2 px-4 hover:text-primary hover:bg-white border hover:border-primary" href="#">View Details</a>
-    </div>
-  </div>
-</div>
+                                <div onClick={() => router(`/history-item/${item?.id}`)} >
+                                    <div className="bg-white rounded animate__animated animate__fadeInUp" >
+                                        <div className="rounded-t">
+                                            <img src={Constants.ISPRODACTION ? Constants.HOSTURL + item?.Image?.url! : item?.Image.replace(new RegExp('/history-list/'), '/')} className="w-full h-48 rounded-t" alt="Image" />
+                                        </div>
+                                        <div className="rounded-b border border-t-0 p-4">
+                                            <a href="#" className="text-xl mb-3 block truncate">{item?.Title!}</a>
+                                            <p className="my-4 text-ellipsis overflow-hidden h-[50px] text-[#848383]">{item?.Description!}</p>
+                                            <a className="btn bg-primary text-white rounded-full py-2 px-4 hover:text-primary hover:bg-white border hover:border-primary" href="#">View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
                             )
                         })
                     }

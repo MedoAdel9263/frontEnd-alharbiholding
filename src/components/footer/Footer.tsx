@@ -67,7 +67,7 @@ function Footer({ items }: { items: any }) {
                         </nav>
                     </div> */}
                     <div className="border-b border-accent-800 border-opacity-30 py-[60px] border-accent-100 border-opacity-30">
-                        <div className="grid gap-10 md:grid-cols-4">
+                        <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                             <div data-aos="fade-up" data-aos-delay="200" className="aos-init aos-animate col-span-2">
                                 <h3 className="text-gray-900  text-lg font-bold leading-[1.25] md:text-xl mb-5 md:mb-[1.875rem] text-white">Al Harbi Holding</h3>
                                 <p className='mb-[2rem]'>

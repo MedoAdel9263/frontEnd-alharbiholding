@@ -46,7 +46,7 @@ function OurCompany({ companies, companiesCategory, isHome }: { companies: any[]
                         {
                             isHome ? (
                                 <div className=' mb-10 w-full px-[15px]'>
-                                    <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 mx-[-15px] gap-5'>
+                                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-[-15px] gap-5'>
                                         {
                                             companies.filter(company => Constants.ISPRODACTION ? company?.company_category?.id == categoryId : company?.company_category == categoryId).map((item, index) => {
                                                 return (

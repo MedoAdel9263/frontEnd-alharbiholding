@@ -29,7 +29,7 @@ export default function Header({ items }: { items: any }) {
 
     return (
         <>
-            <header className={`fixed-top bg-white border-b border-gray-300 transition-all duration-500 ${isFixed ? 'fixed top-0 left-0 w-full animate-fadeIn z-[100] px-[1rem] py-[.5rem] !bg-[#f4f7fc]' : 'relative px-[1rem] lg:px-[3rem] py-[0rem] lg:py-0'}`}>
+            <header className={`fixed-top bg-white border-b border-gray-300 transition-all duration-500 ${isFixed ? 'fixed top-0 left-0 w-full animate-fadeIn z-[100] px-[1rem] py-[.5rem] !bg-[#f4f7fc]' : 'relative px-[1rem] lg:px-[3rem] py-[0rem] lg:py-4'}`}>
                 <div className="mx-auto flex flex-row justify-between items-center ">
                     <div className="flex items-center space-x-4">
                         <img onClick={() => router('/')} alt=" brand logo" className="cursor-pointer grid flex-none place-items-center  max-h-[50px] hidden lg:block" style={{ "color": "transparent" }} sizes="100vw" src={`/logo-light.png`} />

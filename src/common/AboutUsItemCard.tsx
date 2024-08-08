@@ -15,8 +15,7 @@ function AboutUsItemCard({item ,image}:{item:any,image:string}) {
     </div>
     <div data-aos='fade-left' className='flex-1 mt-[3rem] lg:mt-0'>
         <h3 className='text-md font-bold leading-[1.25] !text-dynamic text-primary mb-[1.5rem]'>{Constants.ISPRODACTION ? item.attributes.Title : item.Title}</h3>
-        <div className='mt-8 text-[#848383]'>
-        {Constants.ISPRODACTION ? item.attributes.Description : item.Description}
+        <div dangerouslySetInnerHTML={{ __html: Constants.ISPRODACTION ? item.attributes.Description : item.Description }} className='mt-8 text-[#848383]'>
         </div>
     </div>
         </div>

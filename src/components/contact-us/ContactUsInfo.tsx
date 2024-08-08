@@ -49,7 +49,7 @@ function ContactUsInfo({ items }: { items: any }) {
                     <div className="">
                         <div className="mb-[3rem]">
                             <div className="text-left">
-                                <h2 className="sub-title font-bold text-xl !text-[#a39161]">Contact Us</h2>
+                                <h2 className="sub-title font-bold text-xl !text-[#a39161] relative">Contact Us</h2>
                                 <h2 className="text-dynamic font-bold">Get in touch </h2>
 
                             </div>

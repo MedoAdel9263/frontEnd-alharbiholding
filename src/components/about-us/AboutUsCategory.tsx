@@ -37,7 +37,7 @@ function AboutUsCategory({ items }: { items: any[] }) {
                     <div className="max-w-[500px]">
                         <div className="text-left">
                             <div className="sub-style">
-                                <h4 className="text-primary text-xl font-bold px-3 mb-0">About Us</h4>
+                                <h4 className="sub-title font-bold text-xl !text-[#a39161] relative">About Us</h4>
                             </div>
                         </div>
                     </div>
