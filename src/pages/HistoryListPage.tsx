@@ -8,40 +8,18 @@ import Loader from '../components/loader/Loader';
 import HistoryList from '../components/history/HistoryList';
 import { Constants } from '../Constants';
 import { DATA } from '../../data';
+import { useGetHistoryByCategoryIdMutation } from '../utils/services/initialize.service';
 
 function HistoryListPage() {
-  debugger;
   const route = useParams();
 
-  const [contactInfo, setContactInfo] = useState<any>([]);
-  const [pressReleaseDetailsData, { data, isSuccess }] = useLazyPressReleasesDetailsByCategoryIdQuery();
-
-  const {
-    data: contactInfoData,
-    isLoading: isLoadingContactInfo,
-    isSuccess: isSuccessContactInfo,
-  } = useGetContactInfoQuery();
+  const [data, response] = useGetHistoryByCategoryIdMutation();
 
   React.useEffect(() => {
-    route && Constants.ISPRODACTION
-      ?
-      pressReleaseDetailsData({
-        id: route.id
-      })
-
-      : null;
-  }, [isSuccess]);
-
-
-
-  useEffect(() => {
-debugger;
-    if (isSuccessContactInfo && Constants.ISPRODACTION)
-      setContactInfo(contactInfoData.results)
-    else
-      setContactInfo(DATA.contactInfo)
-  }, [isSuccessContactInfo]);
-
+    data({
+      Id: route.id
+    }) 
+  }, []);
 
 
   useEffect(() => {
@@ -59,17 +37,15 @@ debugger;
   return (
     <>
       {
-        (!isLoadingContactInfo && contactInfo.length > 0 && isSuccess && Constants.ISPRODACTION) || !Constants.ISPRODACTION && contactInfo.length > 0  ?
+        response.isSuccess && !response.isLoading ?
           <>
-            <Header items={contactInfo} />
+            <Header />
             {
-              Constants.ISPRODACTION
-                ?
-                <HistoryList items={data.results} isHome={false} />
-                :
-                <HistoryList items={DATA.pressReleaseDetails.filter(x => x.Category.toString() == route.id)} isHome={false} />
+              response.data.length > 0 && (
+                <HistoryList items={response.data} isHome={false} />
+              )
             }
-            <Footer items={contactInfo} />
+            <Footer items={DATA.contactInfo} />
           </>
           :
           <Loader />

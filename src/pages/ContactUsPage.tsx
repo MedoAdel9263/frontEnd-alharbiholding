@@ -13,21 +13,7 @@ function ContactUsPage() {
 
     const [contactInfo, setContactInfo] = useState<any>([]);
 
-    const {
-        data: contactInfoData,
-        isLoading: isLoadingContactInfo,
-        isSuccess: isSuccessContactInfo,
-    } = useGetContactInfoQuery();
-    
-
-    useEffect(() => {
-       
-      if (isSuccessContactInfo && Constants.ISPRODACTION)
-          setContactInfo(contactInfoData.results)
-      else
-      setContactInfo(DATA.contactInfo)
-  }, [isSuccessContactInfo]);
-    
+   
     useEffect(() => {
         setTimeout(() => {
 
@@ -42,19 +28,10 @@ function ContactUsPage() {
 
   return (
     <>
- {
-        !isLoadingContactInfo && contactInfo.length ?
-        <>
-                <Header items={contactInfo} />
-                <ContactUsInfo items={contactInfo} /> 
-                <Footer items={contactInfo} />
-            </>
-            :
-            <Loader />
-    }
-    </>
-   
-    
+                <Header />
+                <ContactUsInfo items={DATA.contactInfo}/> 
+                <Footer items={DATA.contactInfo} />
+            </>   
   )
 }
 

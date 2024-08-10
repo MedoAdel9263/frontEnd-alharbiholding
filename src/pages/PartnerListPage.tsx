@@ -60,7 +60,7 @@ function PartnerListPage() {
             {
                 !isLoadingContactInfo && contactInfo.length ?
                     <>
-                        <Header items={contactInfo} />
+                        <Header />
 
                         <h2 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 dark:text-white md:text-2xl py-10 px-8">Our Partners</h2>
 
@@ -71,7 +71,7 @@ function PartnerListPage() {
                                 )
                             })
                         }
-                        <Footer items={contactInfo} />
+                        <Footer items={DATA.contactInfo} />
                     </>
                     :
                     <Loader />

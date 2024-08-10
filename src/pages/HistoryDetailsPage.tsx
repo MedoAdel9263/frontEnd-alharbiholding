@@ -8,39 +8,19 @@ import Loader from '../components/loader/Loader';
 import HistoryItem from '../components/history/HistoryItem';
 import { Constants } from '../Constants';
 import { DATA } from '../../data';
+import { useGetHistoryByIdMutation } from '../utils/services/initialize.service';
 
 function HistoryDetailsPage() {
+  debugger;
   const route = useParams();
 
-  const [contactInfo, setContactInfo] = useState<any>([]);
-  const [pressReleaseDetailsData, { data, isSuccess }] = useLazyPressReleasesDetailsByIdQuery();
-
-  const {
-    data: contactInfoData,
-    isLoading: isLoadingContactInfo,
-    isSuccess: isSuccessContactInfo,
-  } = useGetContactInfoQuery();
+  const [data, response] = useGetHistoryByIdMutation();
 
   React.useEffect(() => {
-    debugger;
-    route && Constants.ISPRODACTION
-      ?
-      pressReleaseDetailsData({
-        id: route.id
-      })
-
-      : null;
-  }, [isSuccess]);
-
-
- 
-  useEffect(() => {
-       
-    if (isSuccessContactInfo && Constants.ISPRODACTION)
-        setContactInfo(contactInfoData.results)
-    else
-    setContactInfo(DATA.contactInfo)
-}, [isSuccessContactInfo]);
+    data({
+      Id: route.id
+    }) 
+  }, []);
 
 
   useEffect(() => {
@@ -56,18 +36,18 @@ function HistoryDetailsPage() {
   }, [])
 
   return (
-    <>  
+    <>
       {
-        (!isLoadingContactInfo && contactInfo.length && isSuccess && Constants.ISPRODACTION) || (!Constants.ISPRODACTION && contactInfo.length > 0) ?
+        response.isSuccess && !response.isLoading ?
           <>
-            <Header items={contactInfo} />
+            <Header />
             {
-              Constants.ISPRODACTION ?
-              <HistoryItem item={data} />
-              :
-              <HistoryItem item={DATA.pressReleaseDetails.filter(x => x.id.toString() == route.id).pop()} />
+              response.data && (
+               
+                <HistoryItem item={response.data} />
+              )
             }
-            <Footer items={contactInfo} />
+            <Footer items={DATA.contactInfo} />
           </>
           :
           <Loader />

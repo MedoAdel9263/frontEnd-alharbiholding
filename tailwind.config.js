@@ -29,9 +29,6 @@ export default {
         fadeIn: 'fadeIn 0.5s ease-in-out',
         marquee: 'marquee 20s linear infinite',
       },
-      fontFamily: {
-        secondary: ["Roboto", "sans-serif"],
-      },
       fontSize: {
         sm: '0.8rem',
         base: '1rem',

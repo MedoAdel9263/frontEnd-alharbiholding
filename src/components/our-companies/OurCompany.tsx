@@ -5,15 +5,15 @@ import CompanyDetails from './CompanyDetails';
 import { Constants } from '../../Constants';
 
 function OurCompany({ companies, companiesCategory, isHome }: { companies: any[], companiesCategory: any[], isHome: boolean }) {
-
-    const [categoryId, setCategoryId] = useState<string>('7');
+debugger;
+    const [categoryId, setCategoryId] = useState<string>('2aacea8a-a156-ef11-8dd1-a88e80645bef');
 
     useEffect(() => {
-        setCategoryId(companiesCategory[0].id);
+        setCategoryId(companiesCategory[0].Id);
     }, []);
 
     const onchange = (id) => {
-
+debugger;
         setCategoryId(id);
     }
 
@@ -45,10 +45,10 @@ function OurCompany({ companies, companiesCategory, isHome }: { companies: any[]
                         </div>
                         {
                             isHome ? (
-                                <div className=' mb-10 w-full px-[15px]'>
+                                <div data-aos="fade-up" className=' mb-10 w-full px-[15px]'>
                                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-[-15px] gap-5'>
                                         {
-                                            companies.filter(company => Constants.ISPRODACTION ? company?.company_category?.id == categoryId : company?.company_category == categoryId).map((item, index) => {
+                                            companies.filter(company => Constants.ISPRODACTION ? company?.CompanyCategory?.Id == categoryId : company?.CompanyCategory == categoryId).map((item, index) => {
                                                 return (
                                                     <CompaniesCard key={index} item={item} />
                                                 )
@@ -62,7 +62,7 @@ function OurCompany({ companies, companiesCategory, isHome }: { companies: any[]
                                 <div className=' mb-10 w-full px-[15px]'>
                                     <div className='grid grid-cols-1 mx-[-15px] gap-5'>
                                         {
-                                            companies.filter(company => Constants.ISPRODACTION ? company?.company_category?.id == categoryId : company?.company_category == categoryId).map((item, index) => {
+                                            companies.filter(company => Constants.ISPRODACTION ? company?.CompanyCategory?.Id == categoryId : company?.CompanyCategory == categoryId).map((item, index) => {
                                                 return (
                                                     <CompanyDetails key={index} item={item} />
                                                 )

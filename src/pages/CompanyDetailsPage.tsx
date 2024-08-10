@@ -63,14 +63,14 @@ function CompanyDetailsPage() {
           (!isLoadingContactInfo && contactInfo.length > 0 && isSuccess && Constants.ISPRODACTION) ||
           (!Constants.ISPRODACTION && contactInfo.length > 0) ?
             <>
-              <Header items={contactInfo} />
+              <Header />
               {
                  Constants.ISPRODACTION ?
                  <CompanyDetails item={data} />
                  :
                  <CompanyDetails item={DATA.ourCompanies.filter(x => x.id.toString() == route.id).pop()} />
               }
-              <Footer items={contactInfo} />
+              <Footer items={DATA.contactInfo} />
             </>
             :
             <Loader />

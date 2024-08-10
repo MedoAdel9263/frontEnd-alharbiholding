@@ -8,54 +8,27 @@ import { useGetCompaniesQuery } from '../utils/services/ourCompanies.service';
 import { useGetOurCompanyCategoryQuery } from '../utils/services/ourCompaniesCategory.service';
 import { Constants } from '../Constants';
 import { DATA } from '../../data';
+import { useGetInitQuery } from '../utils/services/initialize.service';
 
 function CompanyPage() {
-    const [contactInfo, setContactInfo] = useState<any>([]);
-    const [companyCategory, setCompanyCategory] = useState<any>([]);
-    const [companies, setCompanies] = useState<any>([]);
-    
-    const {
-        data: contactInfoData,
-        isLoading: isLoadingContactInfo,
-        isSuccess: isSuccessContactInfo,
-    } = useGetContactInfoQuery();
+    const [data, setData] = useState<any>([]);
+    if (Constants.ISPRODACTION) {
+
+    }
 
     const {
-        data: companiesData,
-        isLoading: isLoadingCompanies,
-        isSuccess: isSuccessCompanies,
-    } = useGetCompaniesQuery();
-
-    const {
-        data: companyCategoryData,
-        isLoading: isLoadingCompanyCategory,
-        isSuccess: isSuccessCompanyCategory,
-    } = useGetOurCompanyCategoryQuery();
-    
-    useEffect(() => {
-
-        if (isSuccessCompanyCategory && Constants.ISPRODACTION)
-            setCompanyCategory(companyCategoryData.data)
-        else
-        setCompanyCategory(DATA.companyCategory)
-    }, [isSuccessCompanyCategory]);
+        data: initData,
+        isLoading: isLoading,
+        isSuccess: isSuccess,
+    } = useGetInitQuery();
 
     useEffect(() => {
 
-        if (isSuccessCompanies && Constants.ISPRODACTION)
-            setCompanies(companiesData.results)
-        else
-        setCompanies(DATA.ourCompanies)
-    }, [isSuccessCompanies]);
+        if (isSuccess){
+            setData(initData.data)
+        }
+    }, [isSuccess]);
 
-
-    useEffect(() => {
-       
-        if (isSuccessContactInfo && Constants.ISPRODACTION)
-            setContactInfo(contactInfoData.results)
-        else
-        setContactInfo(DATA.contactInfo)
-    }, [isSuccessContactInfo]);
 
 
     useEffect(() => {
@@ -73,15 +46,15 @@ function CompanyPage() {
     return (
         <div>
         {
-            !isLoadingContactInfo && contactInfo.length ?
+            isSuccess && !isLoading ?
             <>
-                    <Header items={contactInfo} />
+                    <Header />
                     {
-                            !isLoadingCompanies && !isLoadingCompanyCategory && companyCategory.length > 0 && companies.length && (
-                                <OurCompany companies={companies} companiesCategory={companyCategory} isHome={false}/>
+                             initData.CompanyCategory.length > 0 && initData.Company.length && (
+                                <OurCompany companies={initData.Company} companiesCategory={ initData.CompanyCategory} isHome={false}/>
                             )
                         } 
-                    <Footer items={contactInfo} />
+                    <Footer items={DATA.contactInfo} />
                 </>
                 :
                 <Loader />

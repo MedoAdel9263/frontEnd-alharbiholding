@@ -25,7 +25,7 @@ function CompaniesCard({ item }: { item: any }) {
         <div style={{"animationDelay" : " 0.1s;"}}>
             <div data-aos='fade-up' className="bg-[#f4f7fc] rounded-md" style={{"animationDelay" : "0.5s;"}}>
                 <div className="flex justify-center items-center">
-                    <img src={Constants.ISPRODACTION ? Constants.HOSTURL + item.Image.url : item.Image } className="w-[50%] my-16 h-[80px] max-h-[80px]" alt="Image" />
+                    <img src={Constants.ISPRODACTION ? Constants.HOSTURL + item.Photo : item.Image } className="w-[50%] my-16 h-[80px] max-h-[80px]" alt="Image" />
                 </div>
                 <div className="bg-light rounded-b p-[1.5rem]">
                    
@@ -33,7 +33,7 @@ function CompaniesCard({ item }: { item: any }) {
                     <p className="mb-[1.5rem] text-ellipsis overflow-hidden h-[120px] text-[#848383]">
                     {item?.Description}
                     </p>
-                    <a className="btn bg-primary text-white rounded-full py-2 px-4 hover:text-primary hover:bg-white border hover:border-primary" target='_blank' href={'https://' + item.Link}>{item.Link}</a>
+                    <a className="btn bg-primary text-white rounded-full py-2 px-4 hover:text-primary hover:bg-white border hover:border-primary" target='_blank' href={'https://' + item.Url}>{item.Url}</a>
                 </div>
             </div>
         </div>

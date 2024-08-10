@@ -43,8 +43,8 @@
     animation: moveLeftRight 2s ease-in-out infinite;
   }
 
-body {
-    font-family: var(--font-secondary), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+* {
+   font-family: "Roboto", sans-serif;
 }
 
 .our-cpmpany-btn svg path {
@@ -62,7 +62,7 @@ body {
   padding-right: 1rem;
 }
 
-a:hover svg path , li:hover svg path  {
+a:hover svg path , li:hover svg path ,li:hover span  {
   fill: #00503a;
 }
 

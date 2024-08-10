@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Swal from 'sweetalert2';
-import emailjs from '@emailjs/browser';
+import { useGetAddMessageMutation } from '../../utils/services/initialize.service';
 
 function ContactUsInfo({ items }: { items: any }) {
     const [name, setName] = useState<string>('');
@@ -8,12 +8,19 @@ function ContactUsInfo({ items }: { items: any }) {
     const [subject, setSubject] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
     const [message, setMessage] = useState<string>('');
-    const sendEmail = (e: any) => {
+    const [data, response] = useGetAddMessageMutation();
 
+    const sendEmail = (e: any) => {
+        data({
+            Name:name,
+            Phone:phone,
+            Subject:subject,
+            Email:email,
+            Message :message,
+            Date: new Date() 
+        })
         e.preventDefault();
         try {
-            // emailjs.sendForm(
-            //     "service_66pmbwi", "template_n21utys", e.target, "0qeJ-5iblRusaAbPA");
             Swal.fire({
                 icon: 'success',
                 text: "Thank you for reaching out! We'll get back to you shortly.",
@@ -31,17 +38,6 @@ function ContactUsInfo({ items }: { items: any }) {
 
     };
 
-    const setImage = (index: number) => {
-        switch (index) {
-            case 0:
-                return 'about/aboutus-2.png'
-            case 1:
-                return 'about/aboutus-3.png'
-            default:
-                return 'about/aboutus-1.jpg'
-        }
-    }
-
     return (
         <section className='section-padding-primary overflow-hidden bg-white dark:bg-accent-700 [.light_&]:pt-0'>
             <div className="mx-0 md:mx-10 lg:mx-14">
@@ -49,7 +45,7 @@ function ContactUsInfo({ items }: { items: any }) {
                     <div className="">
                         <div className="mb-[3rem]">
                             <div className="text-left">
-                                <h2 className="sub-title font-bold text-xl !text-[#a39161] relative">Contact Us</h2>
+                                <h2 className="sub-title">Contact Us</h2>
                                 <h2 className="text-dynamic font-bold">Get in touch </h2>
 
                             </div>

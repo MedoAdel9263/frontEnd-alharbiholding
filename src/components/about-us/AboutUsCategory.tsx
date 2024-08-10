@@ -1,35 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import AboutUsCardCategory from '../../common/AboutUsCardCategory';
 import AboutUsItemCard from '../../common/AboutUsItemCard';
+import { Constants } from '../../Constants';
 
 function AboutUsCategory({ items }: { items: any[] }) {
-
-    const [categoryId, setCategoryId] = useState<string>('');
-
-    useEffect(() => {
-        setCategoryId(items[0].id);
-    }, []);
-
-    const onchange = (id) => {
-
-        setCategoryId(id);
-    }
-
-    const setImage = (index: number) => {
-        switch (index) {
-            case 0:
-                return 'about/aboutus-1.jpg'
-            case 1:
-                return 'about/aboutus-2.png'
-            case 2:
-                return 'about/aboutus-3.png'
-            case 3:
-                return 'about/aboutus-4.jpg'
-            default:
-                return 'about/aboutus-1.jpg'
-        }
-    }
-
+debugger;
     return (
         <section className='section-padding-primary overflow-hidden bg-white dark:bg-accent-700 [.light_&]:pt-0'>
             <div className='px-[16px] mx-0 md:mx-10 lg:mx-14 my-16'>
@@ -37,7 +12,7 @@ function AboutUsCategory({ items }: { items: any[] }) {
                     <div className="max-w-[500px]">
                         <div className="text-left">
                             <div className="sub-style">
-                                <h4 className="sub-title font-bold text-xl !text-[#a39161] relative">About Us</h4>
+                                <h4 className="sub-title">About Us</h4>
                             </div>
                         </div>
                     </div>
@@ -45,7 +20,7 @@ function AboutUsCategory({ items }: { items: any[] }) {
                 {
                     items.map((item, index) => {
                         return (
-                            <AboutUsItemCard key={index} item={item} image={setImage(items.findIndex(item => item?.id == categoryId))} />
+                            <AboutUsItemCard key={index} item={item} image={Constants.HOSTURL +  item.Photo} />
                         )
 
                     })

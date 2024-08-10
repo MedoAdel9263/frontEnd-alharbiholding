@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -17,9 +17,14 @@ import PartnerListPage from './pages/PartnerListPage';
 import HistoryDetailsPage from './pages/HistoryDetailsPage';
 import CompanyDetailsPage from './pages/CompanyDetailsPage';
 
+
 const App: React.FC = () => {
 
-  AOS.init();
+  useEffect(() => {
+    AOS.refresh();
+    AOS.init({ disable: false,duration : 2000    ,   offset: -50,  
+    });
+  }, [])
 
   return (
     <>

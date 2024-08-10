@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { DrawerComponent } from '../../common/Drawer';
 import { useNavigate } from 'react-router-dom';
 
-export default function Header({ items }: { items: any }) {
+export default function Header() {
 
     const [isOpenDrawer, setIsOpenDrawer] = useState(false);
     const [isFixed, setIsFixed] = useState(false);
@@ -37,12 +37,12 @@ export default function Header({ items }: { items: any }) {
                     </div>
                     <div className='hidden lg:flex flex-col flex-1'>
                         <div className="hidden lg:flex space-x-8 justify-end">
-                            <a onClick={() => router('/')} className={`${isFixed ? 'text-primary font-md py-[10px] cursor-pointer hover:text-primary' : 'text-primary font-md py-[20px] cursor-pointer hover:text-primary hover:font-bold'}`}>Home</a>
+                            <a onClick={() => router('/')} className={`${isFixed ? 'text-primary font-md py-[10px] cursor-pointer hover:text-primary  text-[18px]' : 'text-primary font-md py-[20px] cursor-pointer hover:text-primary hover:font-bold  text-[18px]'}`}>Home</a>
 
-                            <a onClick={() => router('/history-category')} className={`${isFixed ? 'text-[#898888] font-md py-[10px] cursor-pointer hover:text-primary hover:font-bold' : 'text-[#898888] font-md py-[20px] cursor-pointer hover:text-primary hover:font-bold'}`}>History</a>
-                            <a onClick={() => router('/company')} className={`${isFixed ? 'text-[#898888] font-md py-[10px] cursor-pointer hover:text-primary hover:font-bold' : 'text-[#898888] font-md py-[20px] cursor-pointer hover:text-primary hover:font-bold'}`}>Companies</a>
-                            <a onClick={() => router('/about-us')} className={`${isFixed ? 'text-[#898888] font-md py-[10px] cursor-pointer hover:text-primary hover:font-bold' : 'text-[#898888] font-md py-[20px] cursor-pointer hover:text-primary hover:font-bold'}`}>About Us</a>
-                            <a onClick={() => router("/contact-us")} href="#contact" className={`${isFixed ? 'text-[#898888] font-md py-[10px] cursor-pointer hover:text-primary hover:font-bold' : 'text-[#898888] font-md py-[20px] cursor-pointer hover:text-primary hover:font-bold'}`}>Contact Us</a>
+                            <a onClick={() => router('/history-category')} className={`${isFixed ? 'text-[#222222] font-md py-[10px] cursor-pointer hover:text-primary font-[400] text-[18px]' : 'text-[#222222] font-md py-[20px] cursor-pointer hover:text-primary font-[400]  text-[18px]'}`}>History</a>
+                            <a onClick={() => router('/company')} className={`${isFixed ? 'text-[#222222] font-md py-[10px] cursor-pointer hover:text-primary font-[400]  text-[18px]' : 'text-[#222222] font-md py-[20px] cursor-pointer hover:text-primary  font-[400]  text-[18px]'}`}>Companies</a>
+                            <a onClick={() => router('/about-us')} className={`${isFixed ? 'text-[#222222] font-md py-[10px] cursor-pointer hover:text-primary font-[400]  text-[18px]' : 'text-[#222222] font-md py-[20px] cursor-pointer hover:text-primary  font-[400]  text-[18px]'}`}>About Us</a>
+                            <a onClick={() => router("/contact-us")} href="#contact" className={`${isFixed ? 'text-[#222222] font-md py-[10px] cursor-pointer hover:text-primary font-[400]  text-[18px]' : 'text-[#222222] font-md py-[20px] cursor-pointer hover:text-primary font-[400]  text-[18px]'}`}>Contact Us</a>
                         </div>
 
                     </div>

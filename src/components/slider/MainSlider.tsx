@@ -32,14 +32,14 @@ const MainSlider = ({ mainSlides }: { mainSlides: any[] }) => {
         {mainSlides &&
           mainSlides.map((slide: any, index: number) => {
             return (
-              <MainSliderItem imgSrc={Constants.ISPRODACTION ? Constants.HOSTURL + slide.Image.url : `${slide.Image}`  } key={index}>
+              <MainSliderItem imgSrc={Constants.ISPRODACTION ? Constants.HOSTURL + slide.Image : `${slide.Image}`  } key={index}>
                 <div className="absolute  w-full h-full text-center justify-around bottom-[1rem] left-0 flex gap-4 justify-between items-center lg:p-10 md:p-5 p-[1rem] text-white z-20">
                   <div className="flex flex-col justify-center items-center">
                   <p data-aos='fade-up' className="2xl:text-[5.5rem] xl:text-[4.5rem] lg:text-[3.5rem] md:text-[3rem] sm:text-[2.5rem] xs:text-[2rem] font-semibold capitalize w-full mb-10">
                     {slide.Title}
                   </p>
                   <p data-aos='fade-up' className="text-lg text-white">
-                    {slide.description}
+                    {slide.SubTitle}
                   </p>
                   </div>
                  

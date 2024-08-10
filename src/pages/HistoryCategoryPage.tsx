@@ -7,40 +7,29 @@ import { useGetPressReleasesCategoryQuery } from '../utils/services/pressRelease
 import History from '../components/history/History';
 import { Constants } from '../Constants';
 import { DATA } from '../../data';
+import { useGetInitQuery } from '../utils/services/initialize.service';
 
 function HistoryCategoryPage() {
 
-  const [contactInfo, setContactInfo] = useState<any>([]);
-  const [pressReleaseCategory, setPressReleaseCategory] = useState<any>([]);
+  const [data, setData] = useState<any>([]);
+    if (Constants.ISPRODACTION) {
 
-  const {
-    data: contactInfoData,
-    isLoading: isLoadingContactInfo,
-    isSuccess: isSuccessContactInfo,
-  } = useGetContactInfoQuery();
+    }
 
-  const {
-    data: pressReleaseCategoryData,
-    isLoading: isLoadingPressReleaseCategory,
-    isSuccess: isSuccessPressReleaseCategory,
-  } = useGetPressReleasesCategoryQuery();
+    const {
+        data: initData,
+        isLoading: isLoading,
+        isSuccess: isSuccess,
+    } = useGetInitQuery();
 
+    useEffect(() => {
 
-  useEffect(() => {
-       
-    if (isSuccessContactInfo && Constants.ISPRODACTION)
-        setContactInfo(contactInfoData.results)
-    else
-    setContactInfo(DATA.contactInfo)
-}, [isSuccessContactInfo]);
+        if (isSuccess){
+          debugger;
+            setData(initData.HistoryCategory)
+        }
+    }, [isSuccess]);
 
-  useEffect(() => {
-
-    if (isSuccessPressReleaseCategory && Constants.ISPRODACTION)
-      setPressReleaseCategory(pressReleaseCategoryData.results)
-    else
-    setPressReleaseCategory(DATA.pressReleaseCategory)
-  }, [isSuccessPressReleaseCategory]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -58,15 +47,15 @@ function HistoryCategoryPage() {
   return (
     <>
       {
-        !isLoadingContactInfo && contactInfo.length ?
+        isSuccess ?
           <>
-            <Header items={contactInfo} />
+            <Header />
             {
-              !isLoadingPressReleaseCategory && pressReleaseCategory.length > 0 && (
-                <History items={pressReleaseCategory} isHome={false}/>
+              isSuccess && initData?.HistoryCategory?.length > 0 && (
+                <History items={initData.HistoryCategory} isHome={false}/>
               )
             }
-            <Footer items={contactInfo} />
+            <Footer items={DATA.contactInfo} />
           </>
           :
           <Loader />

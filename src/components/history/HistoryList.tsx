@@ -4,14 +4,14 @@ import { Constants } from '../../Constants';
 
 function HistoryList({ items, isHome }: { items: any, isHome: boolean }) {
     const router = useNavigate();
-    let pattern = '/history-list/';
-    console.log(items[0]?.Image.replace(new RegExp('/history-list/'), '/'))
+    debugger;
     return (
         <section className='section-padding-primary overflow-hidden bg-white dark:bg-accent-700 [.light_&]:pt-0 px-[0px] lg:px-[70px] md:px-[40px] ms:px-[30px] min:h-[100px]'>
             <div className="mb-10 flex flex-wrap items-end justify-between gap-x-20 gap-y-10 md:mb-[2.75rem]">
                 <div className="max-w-[500px]">
                     <div className="text-left">
-                        <h2 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 dark:text-white md:text-2xl">History</h2>
+                        <h2 className="sub-title">History</h2>
+                        <h2 className="text-dynamic font-bold">{items[0].HistoryCategory.Title}</h2>
                     </div>
                 </div>
                 {
@@ -30,14 +30,14 @@ function HistoryList({ items, isHome }: { items: any, isHome: boolean }) {
                     {
                         items.map((item, index) => {
                             return (
-                                <div onClick={() => router(`/history-item/${item?.id}`)} >
+                                <div data-aos="fade-up" onClick={() => router(`/history-item/${item?.Id}`)} >
                                     <div className="bg-white rounded animate__animated animate__fadeInUp" >
                                         <div className="rounded-t">
-                                            <img src={Constants.ISPRODACTION ? Constants.HOSTURL + item?.Image?.url! : item?.Image.replace(new RegExp('/history-list/'), '/')} className="w-full h-48 rounded-t" alt="Image" />
+                                            <img src={Constants.ISPRODACTION ? Constants.HOSTURL + item?.Image : item?.Image.replace(new RegExp('/history-list/'), '/')} className="w-full h-48 rounded-t object-cover	" alt="Image" />
                                         </div>
                                         <div className="rounded-b border border-t-0 p-4">
                                             <a href="#" className="text-xl mb-3 block truncate">{item?.Title!}</a>
-                                            <p className="my-4 text-ellipsis overflow-hidden h-[50px] text-[#848383]">{item?.Description!}</p>
+                                            <p className="my-4 text-ellipsis overflow-hidden h-[50px] text-[#848383]">{item?.Details!}</p>
                                             <a className="btn bg-primary text-white rounded-full py-2 px-4 hover:text-primary hover:bg-white border hover:border-primary" href="#">View Details</a>
                                         </div>
                                     </div>

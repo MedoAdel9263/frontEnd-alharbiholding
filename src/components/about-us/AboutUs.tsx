@@ -57,7 +57,7 @@ function AboutUs({aboutUs}:{aboutUs:any}) {
     <div className='flex-1 mt-[3rem] lg:mt-0'>
         <h3 className='text-md font-bold leading-[1.25] !text-dynamic text-primary mb-[1.5rem]'>About Us</h3>
         <div className='mt-8 text-[#848383]'>
-        {Constants.ISPRODACTION ? aboutUs[0].attributes.Description : aboutUs[1].Description}
+        {Constants.ISPRODACTION ? aboutUs[0].Description : aboutUs[1].Description}
         </div>
     </div>
         </div>
