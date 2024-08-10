@@ -24,7 +24,7 @@ debugger;
                     <div className="mb-10 flex flex-wrap items-end justify-between gap-x-20 gap-y-10 md:mb-[2.75rem]">
                         <div className="max-w-[500px]">
                             <div className="text-left">
-                                <h2 className="font-secondary text-xl font-bold leading-[1.25] text-accent-900 dark:text-white md:text-2xl !text-dynamic !text-black">Companies</h2>
+                                <h2 className="sub-title">Companies</h2>
                             </div>
                         </div>
                     </div>

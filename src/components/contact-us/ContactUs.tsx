@@ -102,9 +102,13 @@ function ContactUsComponent({ items }: { items: any }) {
 
                                 <ul aria-label="addresses" className="grid lg:gap-[3rem] gap-[1rem]">
                                     <li className="flex gap-30px">
+                                    <a target='_blank' href='https://www.google.com/maps/place/Al+Harbi+Holding+Company/@21.704832,39.10385,20z/data=!4m6!3m5!1s0x15c3d88ddd4a568b:0x7c590fa8fcebb0c5!8m2!3d21.7048324!4d39.1038504!16s%2Fg%2F1ptzgqxh4?hl=en-GB&entry=ttu'>
                                         <span className="w-[50px] h-[50px] relative top-1 text-md/[1] rounded-full inline-grid place-items-center text-white bg-primary flex-none">
-                                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>
+                                       
+                                        <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>
+                                       
                                         </span>
+                                        </a>
                                         <div className='flex flex-col items-center px-[20px]'>
                                             <h4 className="text-xl font-bold leading-[1.5] mb-[.5rem] text-accent-900  w-full">Address</h4>
                                             <address className="not-italic text-[#848383]">

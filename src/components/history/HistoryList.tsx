@@ -11,7 +11,7 @@ function HistoryList({ items, isHome }: { items: any, isHome: boolean }) {
                 <div className="max-w-[500px]">
                     <div className="text-left">
                         <h2 className="sub-title">History</h2>
-                        <h2 className="text-dynamic font-bold">{items[0].HistoryCategory.Title}</h2>
+                        {!isHome&&<h2 className="font-bold">{items[0].HistoryCategory.Title}</h2>}
                     </div>
                 </div>
                 {

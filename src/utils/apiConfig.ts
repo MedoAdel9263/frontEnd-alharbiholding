@@ -5,7 +5,7 @@ import {
   FetchBaseQueryError,
 } from '@reduxjs/toolkit/query';
 
-const baseUrl = 'https://localhost:44302/api/';
+const baseUrl = 'https://middlenation1-002-site1.ctempurl.com/api/';
 //const router = useNavigate();
 const baseQuery = fetchBaseQuery({
   baseUrl,
